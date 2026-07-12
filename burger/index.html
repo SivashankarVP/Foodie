@@ -19,20 +19,37 @@
 
     <!-- ================= NAVBAR ================= -->
     <nav>
-        <a href="#">Logo</a>
 
-        <div class="cntr-nav">
-            <a href="#">Home</a>
-            <a href="#">Products</a>
-            <a href="#">Shop</a>
-            <a href="#">Contact</a>
+    <a href="#" class="logo">🍔 Foodie</a>
+
+    <div class="cntr-nav">
+
+        <a href="#home">Home</a>
+        <a href="#flavour">Flavour</a>
+        <a href="#menu-section">Menu</a>
+        <a href="#restaurants">Restaurants</a>
+        <a href="#orders">Orders</a>
+
+    </div>
+
+    <div class="nav-right">
+        <i class="ri-search-line" id="search-icon" style="color:#fff; font-size:24px; cursor:pointer; transition:.3s;" onmouseover="this.style.color='#ff9800'" onmouseout="this.style.color='#fff'"></i>
+        <i class="ri-user-line" id="profile-icon" onclick="window.location.href='profile.html'" style="color:#fff; font-size:24px; cursor:pointer; transition:.3s;" onmouseover="this.style.color='#ff9800'" onmouseout="this.style.color='#fff'"></i>
+        <div id="cart-icon-container" style="position:relative; cursor:pointer;" onclick="window.location.href='cart.html'">
+            <i class="ri-shopping-cart-2-line" id="cart-icon" style="color:#fff; font-size:24px; transition:.3s;" onmouseover="this.style.color='#ff9800'" onmouseout="this.style.color='#fff'"></i>
+            <span id="cart-count" style="position:absolute; top:-5px; right:-8px; background:#ff9800; color:#fff; font-size:12px; font-weight:bold; border-radius:50%; width:18px; height:18px; display:flex; align-items:center; justify-content:center;">0</span>
         </div>
 
+        <a href="login.html" class="sign-btn">Sign In</a>
+
         <i class="ri-menu-fill" id="menu"></i>
-    </nav>
+
+    </div>
+
+</nav>
 
     <!-- ================= HERO ================= -->
-    <section class="one">
+    <section class="one" id="home">
 
         <h1>BURGER</h1>
 
@@ -42,11 +59,13 @@
         <img id="bleaf" src="Assets/bleaf.png" alt="Leaf">
         <img id="chilli" src="Assets/chilli.png" alt="Chilli">
         <img id="leaf3" src="Assets/coconoutleaf.png" alt="Leaf">
+        
 
     </section>
 
+
     <!-- ================= ABOUT ================= -->
-    <section class="two">
+    <section class="two" id="flavour">
 
         <div class="lft-two">
 
@@ -74,24 +93,24 @@
     </section>
 
     <!-- ================= PRODUCTS ================= -->
-    <section class="three">
+    <section class="three" id="menu-section">
 
         <div class="card">
 
             <img class="lemon fries" src="Assets/fries.png" alt="">
             <img id="burger1" src="Assets/burger1.png" alt="">
 
-            <h1>Coca-Cola</h1>
+            <h1>BBQ Burger</h1>
 
-            <button>Buy Now</button>
+            <button onclick="addToCartFromHome('BBQ Burger', 199, 'Assets/burger1.png')">Add to Cart</button>
 
         </div>
 
         <div class="card">
 
-            <h1>Burger</h1>
+            <h1>Cheese Burger</h1>
 
-            <button>Buy Now</button>
+            <button onclick="addToCartFromHome('Cheese Burger', 179, 'Assets/burger1.png')">Add to Cart</button>
 
         </div>
 
@@ -100,15 +119,16 @@
             <img class="lemon fries" src="Assets/fries.png" alt="">
             <img id="burger2" src="Assets/burger2.png" alt="">
 
-            <h1>burger</h1>
+            <h1>Crispy Burger</h1>
 
-            <button>Buy Now</button>
+            <button onclick="addToCartFromHome('Crispy Burger', 159, 'Assets/burger2.png')">Add to Cart</button>
 
         </div>
 
     </section>
+    <!-- Restaurants -->
 
-<section class="restaurants">
+<section class="restaurants" id="restaurants">
 
     <div class="restaurant-title">
         <h1>Popular Restaurants</h1>
@@ -203,6 +223,8 @@
     </div>
 
 </section>
+
+</section>
     <!-- ================= FOOTER ================= -->
     <footer class="footer">
 
@@ -210,7 +232,9 @@
 
             <div class="footer-logo">
                 <h2>🍔 BURGER</h2>
-                <p>Fresh. Juicy. Delicious.</p>
+                <p>Developed 🚀 by Sivashankar V P<br>
+                Transforming Ideas into Reality 🔥<br><br>
+                Striving for Growth, Aiming for Excellence 🚀</p>
             </div>
 
             <div class="footer-links">
@@ -218,9 +242,9 @@
                 <h3>Quick Links</h3>
 
                 <a href="#">Home</a>
-                <a href="#">Products</a>
-                <a href="#">Shop</a>
-                <a href="#">Contact</a>
+                <a href="#">Flavour</a>
+                <a href="#">Menu</a>
+                <a href="#">Restaurants</a>
 
             </div>
 
@@ -241,11 +265,8 @@
 
                 <div class="icons">
 
-                    <i class="ri-facebook-fill"></i>
-                    <i class="ri-instagram-line"></i>
-                    <i class="ri-twitter-x-line"></i>
-                    <i class="ri-youtube-fill"></i>
-
+                    <a href="https://www.instagram.com/sivashankar__007/" target="_blank" style="color: inherit; text-decoration: none;"><i class="ri-instagram-line"></i></a>
+                    <a href="https://www.linkedin.com/in/sivashankar-vp" target="_blank" style="color: inherit; text-decoration: none;"><i class="ri-linkedin-fill"></i></a>
                 </div>
 
             </div>
@@ -253,7 +274,7 @@
         </div>
 
         <div class="copyright">
-            © 2026 Burger. All Rights Reserved.
+            <span style="margin-top: 10px; display: inline-block; font-size: 14px;">Designed With <a href="https://www.instagram.com/sivashankar__007/" target="_blank" style="color: #ff4d6d; text-decoration: none;">❤️</a> By Sivashankar V P</span>
         </div>
 
     </footer>
@@ -266,7 +287,39 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
-<script src="script.js"></script>
+<script>
+    function addToCartFromHome(name, price, img) {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const existing = cart.find(item => item.name === name);
+        if (existing) {
+            existing.quantity += 1;
+        } else {
+            cart.push({ id: Date.now(), name: name, price: price, quantity: 1, img: img });
+        }
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartCount();
 
+        // Brief visual feedback on the clicked button
+        event.target.textContent = '✓ Added!';
+        event.target.style.background = '#4caf50';
+        setTimeout(() => {
+            event.target.textContent = 'Add to Cart';
+            event.target.style.background = '';
+        }, 1200);
+    }
+
+    function updateCartCount() {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const total = cart.reduce((sum, item) => sum + item.quantity, 0);
+        const badge = document.getElementById('cart-count');
+        if (badge) badge.textContent = total;
+    }
+    // Update on page load
+    document.addEventListener('DOMContentLoaded', updateCartCount);
+</script>
+
+<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script src="particles-init.js"></script>
 </body>
 </html>

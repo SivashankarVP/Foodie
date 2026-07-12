@@ -30,10 +30,6 @@ tl.to("#chilli",{
     left: "0%"
 }, 'onion')
 
-gsap.set("#burger1", { clearProps: "all" });
-gsap.set("#burger2", { clearProps: "all" });
-gsap.set(".fries", { clearProps: "all" });
-
 var tl2 = gsap.timeline({scrollTrigger:{
     trigger: ".three",
     start: "0% 95%",
@@ -45,21 +41,23 @@ tl2.from("#burger1",{
     x: -500,
     y: 300,
     rotation: -90,
-    duration: 1
+    duration: 1,
+    immediateRender:false
 }, "ca");
 
 tl2.from(".fries",{
     x: 500,
     y: 300,
     rotation: 90,
-    duration: 1
+    duration: 1,
+    immediateRender:false
 }, "ca");
-
 tl2.from("#burger2",{
     x: 500,
     y: 300,
     rotation: 90,
-    duration: 1
+    duration: 1,
+    immediateRender:false
 }, "ca");
 tl2.to("#tomato",{
     width:"12%",
@@ -79,7 +77,7 @@ menu.addEventListener("click",()=>{
     nav.classList.toggle("show");
 
 });
-window.addEventListener("load", () => {
+window.addEventListener("resize", () => {
     ScrollTrigger.refresh();
 });
 
@@ -94,3 +92,23 @@ viewMore.addEventListener("click", () => {
     viewMore.style.display = "none";
 
 });
+
+// Navigate to restaurant details on click
+document.querySelectorAll(".restaurant-item").forEach(item => {
+    item.addEventListener("click", () => {
+        const name = item.querySelector("span").innerText;
+        const logo = item.querySelector("img").getAttribute("src");
+        window.location.href = `restaurant.html?name=${encodeURIComponent(name)}&logo=${encodeURIComponent(logo)}`;
+    });
+});
+
+// Update Cart Count Globally
+function updateGlobalCartCount() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const count = cart.reduce((total, item) => total + item.quantity, 0);
+    const cartCountEl = document.getElementById('cart-count');
+    if(cartCountEl) {
+        cartCountEl.innerText = count;
+    }
+}
+updateGlobalCartCount();
