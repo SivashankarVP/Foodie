@@ -40,6 +40,8 @@
             <span id="cart-count" style="position:absolute; top:-5px; right:-8px; background:#ff9800; color:#fff; font-size:12px; font-weight:bold; border-radius:50%; width:18px; height:18px; display:flex; align-items:center; justify-content:center;">0</span>
         </div>
 
+
+
         <a href="login.html" class="sign-btn">Sign In</a>
 
         <i class="ri-menu-fill" id="menu"></i>
@@ -49,7 +51,7 @@
 </nav>
 
     <!-- ================= HERO ================= -->
-    <section class="one" id="home">
+    <section class="one burger-section" id="home">
 
         <h1>BURGER</h1>
 
@@ -65,7 +67,7 @@
 
 
     <!-- ================= ABOUT ================= -->
-    <section class="two" id="flavour">
+    <section class="two burger-section" id="flavour">
 
         <div class="lft-two">
 
@@ -93,7 +95,7 @@
     </section>
 
     <!-- ================= PRODUCTS ================= -->
-    <section class="three" id="menu-section">
+    <section class="three burger-section" id="menu-section">
 
         <div class="card">
 
@@ -122,6 +124,81 @@
             <h1>Crispy Burger</h1>
 
             <button onclick="addToCartFromHome('Crispy Burger', 159, 'Assets/burger2.png')">Add to Cart</button>
+
+        </div>
+
+    </section>
+
+    <!-- ================= FANTA HERO ================= -->
+    <section class="fanta-one fanta-section" id="fanta-home" style="display: none;">
+
+        <h1>FANTA</h1>
+
+        <img id="fanta-orange-cut" src="Assets/orange2.png" alt="Orange Cut">
+        <img id="fanta-fanta" src="Assets/fanta.png" alt="Fanta Can">
+        <img id="fanta-orange" src="Assets/orange.webp" alt="Orange">
+        <img id="fanta-leaf" src="Assets/leaf.webp" alt="Leaf">
+        <img id="fanta-leaf2" src="Assets/leaf2.png" alt="Leaf">
+        <img id="fanta-leaf3" src="Assets/coconoutleaf.png" alt="Leaf">
+
+    </section>
+
+
+    <!-- ================= FANTA ABOUT ================= -->
+    <section class="fanta-two fanta-section" id="fanta-flavour" style="display: none;">
+
+        <div class="fanta-lft-two">
+
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#e04428"
+                    d="M41.5,-59.5C49.8,-51.1,49.7,-33.6,50.7,-19.2C51.7,-4.7,53.8,6.7,52.4,18.9C51.1,31.1,46.3,44.1,36.9,52.9C27.6,61.8,13.8,66.5,-2.5,70C-18.8,73.4,-37.7,75.6,-52.5,68.5C-67.3,61.5,-78.2,45.2,-84.5,27.1C-90.9,9,-92.7,-10.8,-80.5,-19.3C-68.3,-27.8,-42.1,-24.8,-26.3,-30.8C-10.6,-36.8,-5.3,-51.7,5.7,-59.5C16.6,-67.3,33.2,-68,41.5,-59.5Z"
+                    transform="translate(100 100)" />
+            </svg>
+
+        </div>
+
+        <div class="fanta-rght-two">
+
+            <h1>Flavour Updated</h1>
+
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam, excepturi sed, itaque placeat id natus soluta veniam obcaecati qui a laborum laboriosam dolorem illum labore sit, voluptates commodi neque dolores tempore temporibus deleniti? Nobis, ratione hic error quis cum neque nulla laudantium nostrum sit nihil dolorum quisquam enim quaerat, eaque ex sequi, harum totam quia non! Labore, neque! Amet voluptatem illo similique recusandae! Ex quaerat quibusdam asperiores, ducimus tempore magni labore. Tenetur voluptas, quos ex repellendus provident mollitia laboriosam adipisci alias a impedit, cum accusamus rerum delectus eaque facilis veniam quia laborum incidunt ea assumenda! Eos magni aspernatur quod distinctio.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- ================= FANTA PRODUCTS ================= -->
+    <section class="fanta-three fanta-section" id="fanta-menu-section" style="display: none;">
+
+        <div class="fanta-card">
+
+            <img class="fanta-lemon fanta-lemon1" src="Assets/lemon.webp" alt="">
+            <img id="fanta-cocacola" src="Assets/cocacola.png" alt="">
+
+            <h1>CocaCola</h1>
+
+            <button onclick="addToCartFromHome('CocaCola', 99, 'Assets/cocacola.png')">Add to Cart</button>
+
+        </div>
+
+        <div class="fanta-card">
+
+            <h1>Fanta</h1>
+
+            <button onclick="addToCartFromHome('Fanta', 89, 'Assets/fanta.png')">Add to Cart</button>
+
+        </div>
+
+        <div class="fanta-card">
+
+            <img class="fanta-lemon fanta-lemon2" src="Assets/lemon.webp" alt="">
+            <img id="fanta-pepsi" src="Assets/pepsi.png" alt="">
+
+            <h1>Pepsi</h1>
+
+            <button onclick="addToCartFromHome('Pepsi', 99, 'Assets/pepsi.png')">Add to Cart</button>
 
         </div>
 
@@ -317,6 +394,13 @@
     // Update on page load
     document.addEventListener('DOMContentLoaded', updateCartCount);
 </script>
+
+    <!-- ================= FLOATING GLASSMORPHIC THEME SELECTOR ================= -->
+    <div class="theme-selector-floating">
+        <button id="burger-theme" class="theme-btn active-theme" title="Burger Theme">🍔</button>
+        <button id="fanta-theme" class="theme-btn" title="Fanta Theme">🍊</button>
+        <button id="pizza-theme" class="theme-btn" title="Pizza Theme">🍕</button>
+    </div>
 
 <script src="script.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>

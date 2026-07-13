@@ -797,3 +797,344 @@ nav i{
     z-index: 1;
     pointer-events: none;
 }
+
+/* ==========================================================================
+   Fanta Theme Styles & Animations
+   ========================================================================== */
+
+   
+.fanta-one {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background: radial-gradient(
+    circle at center,
+    #FFD166 0%,
+    #FFB000 18%,
+    #FF8A00 38%,
+    #F97316 60%,
+    #D95D00 80%,
+    #8A3A00 100%
+);
+}
+
+.fanta-one h1 {
+    font-size: 25vw;
+    font-family: Product Sans B;
+    color: #fff;
+}
+
+#fanta-fanta {
+    position: absolute;
+    width: 40%;
+    z-index: 100;
+}
+
+#fanta-orange-cut {
+    position: absolute;
+    top: 10%;
+    left: 32%;
+    width: 15%;
+    z-index: 99;
+}
+
+#fanta-orange {
+    position: absolute;
+    width: 20%;
+    z-index: 101;
+    top: 55%;
+    right: 30%;
+}
+
+#fanta-leaf {
+    top: 10%;
+    left: 0%;
+    transform: rotate(60deg);
+    position: absolute;
+    width: 18%;
+    z-index: 98;
+}
+
+#fanta-leaf2 {
+    top: 70%;
+    left: 80%;
+    transform: rotate(-90deg);
+    position: absolute;
+    width: 12%;
+    z-index: 98;
+}
+
+#fanta-leaf3 {
+    position: absolute;
+    width: 20%;
+    top: 10%;
+    right: 0%;
+    z-index: 97;
+}
+
+.fanta-two {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+   background: radial-gradient(
+    circle at center,
+    #2E8B57 0%,
+    #1F6B45 30%,
+    #12422D 65%,
+    #071B12 100%
+);
+}
+
+.fanta-lft-two, .fanta-rght-two {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5vh;
+    width: 50%;
+    height: 100%;
+}
+
+.fanta-lft-two svg {
+    margin-top: 50vh;
+    width: 90%;
+    transform: rotateX(50deg);
+}
+
+.fanta-rght-two h1 {
+    color: #fff;
+    font-size: 5vw;
+}
+
+.fanta-rght-two p {
+    font-size: 1vw;
+    color: #fff;
+    width: 80%;
+}
+
+.fanta-three {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5vw;
+    width: 100%;
+    height: 100vh;
+   background: radial-gradient(
+    circle at center,
+    #FFD166 0%,
+    #FFB000 18%,
+    #FF8A00 38%,
+    #F97316 60%,
+    #D95D00 80%,
+    #8A3A00 100%
+);
+}
+
+.fanta-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2vh;
+    width: 25vw;
+    height: 70vh;
+    margin-top: 10vh;
+    border-radius: 20px;
+    background-color: #fff;
+}
+
+.fanta-card h1 {
+    margin-top: 40vh;
+    font-size: 3vw;
+    position: relative;
+    z-index: 5;
+}
+
+.fanta-card button {
+    font-size: 1vw;
+    border-radius: 50px;
+    border: none;
+    color: #fff;
+    background-color: rgb(255, 149, 0);
+    padding: 1vw 2vw;
+    cursor: pointer;
+    transition: 0.3s;
+    position: relative;
+    z-index: 5;
+}
+
+.fanta-card button:hover {
+    background-color: rgb(230, 130, 0);
+}
+
+#fanta-cocacola {
+    top: -15%;
+    position: absolute;
+    width: 12vw;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    z-index: 3;
+}
+
+#fanta-pepsi {
+    top: -15%;
+    position: absolute;
+    width: 17vw;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    z-index: 2;
+}
+
+.fanta-lemon {
+    top: -30%;
+    position: absolute;
+    left: 50%;
+    width: 18vw;
+    transform: translate(-50%, 0%);
+    z-index: 2;
+}
+
+/* Fanta Responsive Styles */
+@media(max-width:1400px){
+    .fanta-one h1 { font-size:22vw; }
+    #fanta-fanta { width:42%; }
+    .fanta-card { width:28vw; }
+}
+@media(max-width:1200px){
+    #fanta-fanta { width:45%; }
+    #fanta-orange-cut { width:18%; }
+    #fanta-orange { width:22%; }
+    .fanta-card { width:30vw; height:65vh; }
+    .fanta-card h1 { font-size:38px; }
+}
+@media(max-width:992px){
+    .fanta-one h1 { font-size:24vw; }
+    #fanta-fanta { width:60%; }
+    #fanta-orange-cut { width:22%; }
+    #fanta-orange { width:26%; }
+    #fanta-leaf { width:25%; }
+    #fanta-leaf2 { width:18%; }
+    .fanta-two { flex-direction:column; height:auto; padding:80px 0; }
+    .fanta-lft-two, .fanta-rght-two { width:100%; align-items:center; text-align:center; }
+    .fanta-lft-two svg { margin-top:0; width:70%; }
+    .fanta-rght-two { padding:40px; }
+    .fanta-rght-two h1 { font-size:55px; }
+    .fanta-rght-two p { width:90%; font-size:16px; line-height:28px; }
+    .fanta-three { flex-direction:column; height:auto; padding:120px 0; }
+    .fanta-card { width:80%; height:520px; }
+    .fanta-card h1 { font-size:45px; }
+    .fanta-card button { font-size:18px; padding:15px 40px; }
+    #fanta-cocacola { width:40%; }
+    #fanta-pepsi { width:55%; }
+    .fanta-lemon { width:220px; }
+}
+@media(max-width:768px){
+    .fanta-one { overflow:hidden; }
+    .fanta-one h1 { font-size:28vw; }
+    #fanta-fanta { width:82%; }
+    #fanta-orange-cut { width:30%; left:15%; }
+    #fanta-orange { width:35%; right:8%; }
+    #fanta-leaf { width:30%; }
+    #fanta-leaf2 { width:22%; }
+    #fanta-leaf3 { width:35%; }
+    .fanta-rght-two h1 { font-size:42px; }
+    .fanta-rght-two p { font-size:15px; line-height:28px; }
+    .fanta-card { width:90%; height:500px; }
+    .fanta-card h1 { font-size:38px; }
+    .fanta-card button { font-size:16px; }
+}
+@media(max-width:480px){
+    .fanta-one h1 { font-size:30vw; }
+    #fanta-fanta { width:95%; }
+    #fanta-orange-cut { width:34%; }
+    #fanta-orange { width:42%; }
+    #fanta-leaf { width:40%; }
+    #fanta-leaf2 { width:28%; }
+    #fanta-leaf3 { width:45%; }
+    .fanta-rght-two h1 { font-size:34px; }
+    .fanta-rght-two p { width:95%; font-size:14px; }
+    .fanta-card { width:94%; height:460px; }
+    .fanta-card h1 { font-size:32px; }
+    .fanta-card button { padding:14px 34px; }
+}
+/* Floating Glassmorphic Theme Selector */
+.theme-selector-floating {
+    position: fixed;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 50px;
+    padding: 20px 12px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+}
+
+.theme-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.theme-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.15);
+}
+
+.theme-btn.active-theme {
+    border: 2px solid #fff;
+    transform: scale(1.2);
+}
+
+#burger-theme.active-theme {
+    background: #ff5722;
+    box-shadow: 0 0 20px rgba(255, 87, 34, 0.8);
+}
+
+#fanta-theme.active-theme {
+    background: #ff9800;
+    box-shadow: 0 0 20px rgba(255, 152, 0, 0.8);
+}
+
+#pizza-theme.active-theme {
+    background: #e53935;
+    box-shadow: 0 0 20px rgba(229, 57, 53, 0.8);
+}
+
+@media(max-width: 768px) {
+    .theme-selector-floating {
+        right: 50%;
+        top: auto;
+        bottom: 20px;
+        transform: translateX(50%);
+        flex-direction: row;
+        padding: 12px 20px;
+        gap: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+    
+    .theme-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+}
