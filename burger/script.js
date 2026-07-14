@@ -1,7 +1,14 @@
 // Timelines state variables
 let burgerTl1, burgerTl2, fantaTl1, fantaTl2, pzTl1, pzTl2;
+let mm;
 
 function killTimelines() {
+    // Safely revert matchMedia animations
+    if (mm) {
+        mm.revert();
+        mm = null;
+    }
+
     // Safely kill all active ScrollTrigger instances globally
     if (typeof ScrollTrigger !== 'undefined') {
         ScrollTrigger.getAll().forEach(trigger => trigger.kill());
@@ -16,232 +23,537 @@ function killTimelines() {
     if (pzTl2) { pzTl2.kill(); pzTl2 = null; }
     
     // Clear all GSAP inline styles to restore clean starting state
-    gsap.set("#burger, #tomato, #onion, #bleaf, #chilli, #burger1, #burger2, .fries", {clearProps: "all"});
+    gsap.set("#burger, #tomato, #onion, #bleaf, #chilli, #burger1, #burger2, .fries, .mid-card-img", {clearProps: "all"});
     gsap.set("#fanta-fanta, #fanta-orange-cut, #fanta-orange, #fanta-leaf, #fanta-leaf2, #fanta-leaf3, .fanta-lemon1, #fanta-cocacola, .fanta-lemon2, #fanta-pepsi", {clearProps: "all"});
     gsap.set("#pz-pizza, #pz-tomato, #pz-onion, #pz-cheese, #pz-chilli, #pz-leaf3, .pz-sweetcorn1, #pz-pizza2, .pz-sweetcorn2, #pz-pizza1", {clearProps: "all"});
 }
 
 function initTimelines() {
     killTimelines();
+    mm = gsap.matchMedia();
     
     if (currentTheme === 'burger') {
-        burgerTl1 = gsap.timeline({scrollTrigger:{
-            trigger: ".burger-section.two",
-            start: "0% 95%",
-            end: "70% 50%",
-            scrub: true,
-        }});
+        // Desktop Animations
+        mm.add("(min-width: 993px)", () => {
+            burgerTl1 = gsap.timeline({scrollTrigger:{
+                trigger: ".burger-section.two",
+                start: "0% 95%",
+                end: "70% 50%",
+                scrub: true,
+            }});
 
-        burgerTl1.to("#burger",{
-            top: "120%",
-            left: "10%"
-        }, 'onion');
-        burgerTl1.to("#tomato",{
-            top:"160%",
-            left: "23%"
-        }, 'onion');
-        burgerTl1.to("#onion",{
-            width: "15%",
-            top:"160%",
-            right: "10%"
-        }, 'onion');
-        burgerTl1.to("#bleaf",{
-            top:"110%",
-            rotate: "130deg",
-            left: "70%"
-        }, 'onion');
-        burgerTl1.to("#chilli",{
-            top:"110%",
-            rotate: "130deg",
-            left: "0%"
-        }, 'onion');
+            burgerTl1.to("#burger",{
+                top: "120%",
+                left: "10%"
+            }, 'onion');
+            burgerTl1.to("#tomato",{
+                top:"160%",
+                left: "23%"
+            }, 'onion');
+            burgerTl1.to("#onion",{
+                width: "15%",
+                top:"160%",
+                right: "10%"
+            }, 'onion');
+            burgerTl1.to("#bleaf",{
+                top:"110%",
+                rotate: "130deg",
+                left: "70%"
+            }, 'onion');
+            burgerTl1.to("#chilli",{
+                top:"110%",
+                rotate: "130deg",
+                left: "0%"
+            }, 'onion');
 
-        burgerTl2 = gsap.timeline({scrollTrigger:{
-            trigger: ".burger-section.three",
-            start: "0% 95%",
-            end: "20% 50%",
-            scrub: true,
-        }});
-        burgerTl2.from("#burger1",{
-            x: -500,
-            y: 300,
-            rotation: -90,
-            duration: 1,
-            immediateRender:false
-        }, "ca");
-        burgerTl2.from(".fries",{
-            x: 500,
-            y: 300,
-            rotation: 90,
-            duration: 1,
-            immediateRender:false
-        }, "ca");
-        burgerTl2.from("#burger2",{
-            x: 500,
-            y: 300,
-            rotation: 90,
-            duration: 1,
-            immediateRender:false
-        }, "ca");
-        burgerTl2.to("#tomato",{
-            width:"12%",
-            left:"44%",
-            top:"205%"
-        }, 'ca');
-        burgerTl2.to("#burger",{
-            width:"25%",
-            top:"214%",
-            left:"37.5%",
-        }, 'ca');
+            burgerTl2 = gsap.timeline({scrollTrigger:{
+                trigger: ".burger-section.three",
+                start: "0% 95%",
+                end: "20% 50%",
+                scrub: true,
+            }});
+            burgerTl2.from("#burger1",{
+                x: -500,
+                y: 300,
+                rotation: -90,
+                duration: 1,
+                immediateRender:false
+            }, "ca");
+            burgerTl2.from(".fries",{
+                x: 500,
+                y: 300,
+                rotation: 90,
+                duration: 1,
+                immediateRender:false
+            }, "ca");
+            burgerTl2.from("#burger2",{
+                x: 500,
+                y: 300,
+                rotation: 90,
+                duration: 1,
+                immediateRender:false
+            }, "ca");
+            burgerTl2.to("#tomato",{
+                width:"12%",
+                left:"44%",
+                top:"205%"
+            }, 'ca');
+            burgerTl2.to("#burger",{
+                width:"25%",
+                top:"214%",
+                left:"37.5%",
+            }, 'ca');
+        });
+
+        // Mobile/Tablet Animations
+        mm.add("(max-width: 992px)", () => {
+            burgerTl1 = gsap.timeline({scrollTrigger:{
+                trigger: ".burger-section.two",
+                start: "0% 95%",
+                end: "70% 50%",
+                scrub: true,
+            }});
+
+            burgerTl1.to("#burger",{
+                top: "115%",
+                left: "50%",
+                xPercent: -50,
+                width: "45%"
+            }, 'onion');
+            burgerTl1.to("#tomato",{
+                top: "110%",
+                left: "50%",
+                xPercent: -50,
+                width: "20%"
+            }, 'onion');
+            burgerTl1.to("#onion",{
+                top: "122%",
+                left: "50%",
+                xPercent: -50,
+                width: "22%"
+            }, 'onion');
+            burgerTl1.to("#bleaf",{
+                top: "105%",
+                left: "50%",
+                xPercent: -50,
+                rotate: "130deg",
+                width: "22%"
+            }, 'onion');
+            burgerTl1.to("#chilli",{
+                top: "125%",
+                left: "50%",
+                xPercent: -50,
+                rotate: "130deg",
+                width: "15%"
+            }, 'onion');
+
+            // Fade out hero items when entering section three
+            gsap.to("#burger, #tomato, #onion, #bleaf, #chilli", {
+                opacity: 0,
+                scrollTrigger: {
+                    trigger: ".burger-section.three",
+                    start: "top 95%",
+                    end: "top 40%",
+                    scrub: true
+                }
+            });
+
+            // Card 1 (BBQ Burger)
+            gsap.from(".burger-section.three .card:nth-child(1) #burger1, .burger-section.three .card:nth-child(1) .fries", {
+                scrollTrigger: {
+                    trigger: ".burger-section.three .card:nth-child(1)",
+                    start: "top 95%",
+                    end: "top 55%",
+                    scrub: true,
+                },
+                x: (index, target) => target.id === 'burger1' ? -150 : 150,
+                opacity: 0,
+                scale: 0.8,
+                rotation: (index, target) => target.id === 'burger1' ? -30 : 30,
+                duration: 1
+            });
+
+            // Card 2 (Cheese Burger)
+            gsap.from(".burger-section.three .card:nth-child(2) .mid-card-img", {
+                scrollTrigger: {
+                    trigger: ".burger-section.three .card:nth-child(2)",
+                    start: "top 95%",
+                    end: "top 55%",
+                    scrub: true,
+                },
+                scale: 0.6,
+                opacity: 0,
+                y: 50,
+                duration: 1
+            });
+
+            // Card 3 (Chicken Burger)
+            gsap.from(".burger-section.three .card:nth-child(3) #burger2, .burger-section.three .card:nth-child(3) .lemon", {
+                scrollTrigger: {
+                    trigger: ".burger-section.three .card:nth-child(3)",
+                    start: "top 95%",
+                    end: "top 55%",
+                    scrub: true,
+                },
+                x: (index, target) => target.id === 'burger2' ? -150 : 150,
+                opacity: 0,
+                scale: 0.8,
+                rotation: (index, target) => target.id === 'burger2' ? -30 : 30,
+                duration: 1
+            });
+        });
         
     } else if (currentTheme === 'fanta') {
-        fantaTl1 = gsap.timeline({scrollTrigger:{
-            trigger: ".fanta-section.fanta-two",
-            start: "0% 95%",
-            end: "70% 50%",
-            scrub: true,
-        }});
+        // Desktop Animations
+        mm.add("(min-width: 993px)", () => {
+            fantaTl1 = gsap.timeline({scrollTrigger:{
+                trigger: ".fanta-section.fanta-two",
+                start: "0% 95%",
+                end: "70% 50%",
+                scrub: true,
+            }});
 
-        fantaTl1.to("#fanta-fanta",{
-            top: "120%",
-            left: "0%"
-        }, 'orange');
-        fantaTl1.to("#fanta-orange-cut",{
-            top:"160%",
-            left: "23%"
-        }, 'orange');
-        fantaTl1.to("#fanta-orange",{
-            width: "15%",
-            top:"160%",
-            right: "10%"
-        }, 'orange');
-        fantaTl1.to("#fanta-leaf",{
-            top:"110%",
-            rotate: "130deg",
-            left: "70%"
-        }, 'orange');
-        fantaTl1.to("#fanta-leaf2",{
-            top:"110%",
-            rotate: "130deg",
-            left: "0%"
-        }, 'orange');
+            fantaTl1.to("#fanta-fanta",{
+                top: "120%",
+                left: "0%"
+            }, 'orange');
+            fantaTl1.to("#fanta-orange-cut",{
+                top:"160%",
+                left: "23%"
+            }, 'orange');
+            fantaTl1.to("#fanta-orange",{
+                width: "15%",
+                top:"160%",
+                right: "10%"
+            }, 'orange');
+            fantaTl1.to("#fanta-leaf",{
+                top:"110%",
+                rotate: "130deg",
+                left: "70%"
+            }, 'orange');
+            fantaTl1.to("#fanta-leaf2",{
+                top:"110%",
+                rotate: "130deg",
+                left: "0%"
+            }, 'orange');
 
-        fantaTl2 = gsap.timeline({scrollTrigger:{
-            trigger: ".fanta-section.fanta-three",
-            start: "0% 95%",
-            end: "20% 50%",
-            scrub: true,
-        }});
+            fantaTl2 = gsap.timeline({scrollTrigger:{
+                trigger: ".fanta-section.fanta-three",
+                start: "0% 95%",
+                end: "20% 50%",
+                scrub: true,
+            }});
 
-        fantaTl2.from(".fanta-lemon1",{
-            rotate: "-90deg",
-            left: "-100%",
-            top: "110%"
-        }, 'ca');
-        fantaTl2.from("#fanta-cocacola",{
-            rotate: "-90deg",
-            top: "110%",
-            left: "-100%",
-        }, 'ca');
-        fantaTl2.from(".fanta-lemon2",{
-            rotate: "90deg",
-            left: "100%",
-            top: "110%"
-        }, 'ca');
-        fantaTl2.from("#fanta-pepsi",{
-            rotate: "90deg",
-            top: "110%",
-            left: "100%",
-        }, 'ca');
-        fantaTl2.to("#fanta-orange-cut",{
-            width:"15vw",
-            left: "50%",
-            top: "202%",
-            xPercent: -50,
-            yPercent: 0
-        }, 'ca');
-        fantaTl2.to("#fanta-fanta",{
-            width:"30vw",
-            top: "208%",
-            left: "50%",
-            xPercent: -50,
-            yPercent: 0
-        }, 'ca');
+            fantaTl2.from(".fanta-lemon1",{
+                rotate: "-90deg",
+                left: "-100%",
+                top: "110%"
+            }, 'ca');
+            fantaTl2.from("#fanta-cocacola",{
+                rotate: "-90deg",
+                top: "110%",
+                left: "-100%",
+            }, 'ca');
+            fantaTl2.from(".fanta-lemon2",{
+                rotate: "90deg",
+                left: "100%",
+                top: "110%"
+            }, 'ca');
+            fantaTl2.from("#fanta-pepsi",{
+                rotate: "90deg",
+                top: "110%",
+                left: "100%",
+            }, 'ca');
+            fantaTl2.to("#fanta-orange-cut",{
+                width:"15vw",
+                left: "50%",
+                top: "202%",
+                xPercent: -50,
+                yPercent: 0
+            }, 'ca');
+            fantaTl2.to("#fanta-fanta",{
+                width:"30vw",
+                top: "208%",
+                left: "50%",
+                xPercent: -50,
+                yPercent: 0
+            }, 'ca');
+        });
+
+        // Mobile/Tablet Animations
+        mm.add("(max-width: 992px)", () => {
+            fantaTl1 = gsap.timeline({scrollTrigger:{
+                trigger: ".fanta-section.fanta-two",
+                start: "0% 95%",
+                end: "70% 50%",
+                scrub: true,
+            }});
+
+            fantaTl1.to("#fanta-fanta",{
+                top: "115%",
+                left: "50%",
+                xPercent: -50,
+                width: "45%"
+            }, 'orange');
+            fantaTl1.to("#fanta-orange-cut",{
+                top: "110%",
+                left: "50%",
+                xPercent: -50,
+                width: "20%"
+            }, 'orange');
+            fantaTl1.to("#fanta-orange",{
+                top: "122%",
+                left: "50%",
+                xPercent: -50,
+                width: "22%"
+            }, 'orange');
+            fantaTl1.to("#fanta-leaf",{
+                top: "105%",
+                left: "50%",
+                xPercent: -50,
+                rotate: "130deg",
+                width: "22%"
+            }, 'orange');
+            fantaTl1.to("#fanta-leaf2",{
+                top: "125%",
+                left: "50%",
+                xPercent: -50,
+                rotate: "130deg",
+                width: "15%"
+            }, 'orange');
+
+            // Fade out hero items when entering fanta-three
+            gsap.to("#fanta-fanta, #fanta-orange-cut, #fanta-orange, #fanta-leaf, #fanta-leaf2, #fanta-leaf3", {
+                opacity: 0,
+                scrollTrigger: {
+                    trigger: ".fanta-section.fanta-three",
+                    start: "top 95%",
+                    end: "top 40%",
+                    scrub: true
+                }
+            });
+
+            // Card 1 (Coca Cola)
+            gsap.from(".fanta-section.fanta-three .fanta-card:nth-child(1) #fanta-cocacola, .fanta-section.fanta-three .fanta-card:nth-child(1) .fanta-lemon1", {
+                scrollTrigger: {
+                    trigger: ".fanta-section.fanta-three .fanta-card:nth-child(1)",
+                    start: "top 95%",
+                    end: "top 55%",
+                    scrub: true,
+                },
+                x: (index, target) => target.id === 'fanta-cocacola' ? -150 : 150,
+                opacity: 0,
+                scale: 0.8,
+                rotation: (index, target) => target.id === 'fanta-cocacola' ? -30 : 30,
+                duration: 1
+            });
+
+            // Card 2 (Fanta)
+            gsap.from(".fanta-section.fanta-three .fanta-card:nth-child(2) .mid-card-img", {
+                scrollTrigger: {
+                    trigger: ".fanta-section.fanta-three .fanta-card:nth-child(2)",
+                    start: "top 95%",
+                    end: "top 55%",
+                    scrub: true,
+                },
+                scale: 0.6,
+                opacity: 0,
+                y: 50,
+                duration: 1
+            });
+
+            // Card 3 (Pepsi)
+            gsap.from(".fanta-section.fanta-three .fanta-card:nth-child(3) #fanta-pepsi, .fanta-section.fanta-three .fanta-card:nth-child(3) .fanta-lemon2", {
+                scrollTrigger: {
+                    trigger: ".fanta-section.fanta-three .fanta-card:nth-child(3)",
+                    start: "top 95%",
+                    end: "top 55%",
+                    scrub: true,
+                },
+                x: (index, target) => target.id === 'fanta-pepsi' ? -150 : 150,
+                opacity: 0,
+                scale: 0.8,
+                rotation: (index, target) => target.id === 'fanta-pepsi' ? -30 : 30,
+                duration: 1
+            });
+        });
+
     } else if (currentTheme === 'pizza') {
-         pzTl1 = gsap.timeline({scrollTrigger:{
-             trigger: ".pz-section.pz-two",
-             start: "0% 95%",
-             end: "70% 50%",
-             scrub: true,
-         }});
+        // Desktop Animations
+        mm.add("(min-width: 993px)", () => {
+             pzTl1 = gsap.timeline({scrollTrigger:{
+                 trigger: ".pz-section.pz-two",
+                 start: "0% 95%",
+                 end: "70% 50%",
+                 scrub: true,
+             }});
 
-          pzTl1.to("#pz-pizza",{
-              width: "32%",
-              top: "120%",
-              left: "4%"
-          }, 'onion1');
-          pzTl1.to("#pz-tomato",{
-              width: "12%",
-              top: "160%",
-              left: "21%"
-          }, 'onion1');
-          pzTl1.to("#pz-onion",{
-              width: "12%",
-              top: "160%",
-              right: "10%"
-          }, 'onion1');
-          pzTl1.to("#pz-cheese",{
-              width: "14%",
-              top: "110%",
-              rotate: "130deg",
-              left: "72%"
-          }, 'onion1');
-          pzTl1.to("#pz-chilli",{
-              width: "9%",
-              top: "110%",
-              rotate: "130deg",
-              left: "2%"
-          }, 'onion1');
+              pzTl1.to("#pz-pizza",{
+                  width: "32%",
+                  top: "120%",
+                  left: "4%"
+              }, 'onion1');
+              pzTl1.to("#pz-tomato",{
+                  width: "12%",
+                  top: "160%",
+                  left: "21%"
+              }, 'onion1');
+              pzTl1.to("#pz-onion",{
+                  width: "12%",
+                  top: "160%",
+                  right: "10%"
+              }, 'onion1');
+              pzTl1.to("#pz-cheese",{
+                  width: "14%",
+                  top: "110%",
+                  rotate: "130deg",
+                  left: "72%"
+              }, 'onion1');
+              pzTl1.to("#pz-chilli",{
+                  width: "9%",
+                  top: "110%",
+                  rotate: "130deg",
+                  left: "2%"
+              }, 'onion1');
 
-         pzTl2 = gsap.timeline({scrollTrigger:{
-             trigger: ".pz-section.pz-three",
-             start: "0% 95%",
-             end: "20% 50%",
-             scrub: true,
-         }});
+             pzTl2 = gsap.timeline({scrollTrigger:{
+                 trigger: ".pz-section.pz-three",
+                 start: "0% 95%",
+                 end: "20% 50%",
+                 scrub: true,
+             }});
 
-         pzTl2.from(".pz-sweetcorn1",{
-             rotate: "-90deg",
-             left: "-100%",
-             top: "110%"
-         }, 'ca');
-         pzTl2.from("#pz-pizza2",{
-             rotate: "-90deg",
-             top: "110%",
-             left: "-100%",
-         }, 'ca');
+             pzTl2.from(".pz-sweetcorn1",{
+                 rotate: "-90deg",
+                 left: "-100%",
+                 top: "110%"
+             }, 'ca');
+             pzTl2.from("#pz-pizza2",{
+                 rotate: "-90deg",
+                 top: "110%",
+                 left: "-100%",
+              }, 'ca');
 
-         pzTl2.from(".pz-sweetcorn2",{
-             rotate: "90deg",
-             left: "100%",
-             top: "110%"
-         }, 'ca');
-         pzTl2.from("#pz-pizza1",{
-             rotate: "90deg",
-             top: "110%",
-             left: "100%",
-         }, 'ca');
+              pzTl2.from(".pz-sweetcorn2",{
+                  rotate: "90deg",
+                  left: "100%",
+                  top: "110%"
+              }, 'ca');
+              pzTl2.from("#pz-pizza1",{
+                  rotate: "90deg",
+                  top: "110%",
+                  left: "100%",
+              }, 'ca');
 
-         pzTl2.to("#pz-tomato",{
-             width:"15%",
-             left: "42.5%",
-             top: "204%"
-         }, 'ca');
-         pzTl2.to("#pz-pizza",{
-             width:"27%",
-             top: "210%",
-             left: "36.5%",
-         }, 'ca');
+              pzTl2.to("#pz-tomato",{
+                  width:"15%",
+                  left: "42.5%",
+                  top: "204%"
+              }, 'ca');
+              pzTl2.to("#pz-pizza",{
+                  width:"27%",
+                  top: "210%",
+                  left: "36.5%",
+              }, 'ca');
+        });
+
+        // Mobile/Tablet Animations
+        mm.add("(max-width: 992px)", () => {
+             pzTl1 = gsap.timeline({scrollTrigger:{
+                 trigger: ".pz-section.pz-two",
+                 start: "0% 95%",
+                 end: "70% 50%",
+                 scrub: true,
+             }});
+
+              pzTl1.to("#pz-pizza",{
+                  top: "115%",
+                  left: "50%",
+                  xPercent: -50,
+                  width: "45%"
+              }, 'onion1');
+              pzTl1.to("#pz-tomato",{
+                  top: "110%",
+                  left: "50%",
+                  xPercent: -50,
+                  width: "20%"
+              }, 'onion1');
+              pzTl1.to("#pz-onion",{
+                  top: "122%",
+                  left: "50%",
+                  xPercent: -50,
+                  width: "22%"
+              }, 'onion1');
+              pzTl1.to("#pz-cheese",{
+                  top: "105%",
+                  left: "50%",
+                  xPercent: -50,
+                  rotate: "130deg",
+                  width: "22%"
+              }, 'onion1');
+              pzTl1.to("#pz-chilli",{
+                  top: "125%",
+                  left: "50%",
+                  xPercent: -50,
+                  rotate: "130deg",
+                  width: "15%"
+              }, 'onion1');
+
+             // Fade out hero items when entering pz-three
+             gsap.to("#pz-pizza, #pz-tomato, #pz-onion, #pz-cheese, #pz-chilli, #pz-leaf3", {
+                 opacity: 0,
+                 scrollTrigger: {
+                     trigger: ".pz-section.pz-three",
+                     start: "top 95%",
+                     end: "top 40%",
+                     scrub: true
+                 }
+             });
+
+             // Card 1 (Pizza 2)
+             gsap.from(".pz-section.pz-three .pz-card:nth-child(1) #pz-pizza2, .pz-section.pz-three .pz-card:nth-child(1) .pz-sweetcorn1", {
+                 scrollTrigger: {
+                     trigger: ".pz-section.pz-three .pz-card:nth-child(1)",
+                     start: "top 95%",
+                     end: "top 55%",
+                     scrub: true,
+                 },
+                 x: (index, target) => target.id === 'pz-pizza2' ? -150 : 150,
+                 opacity: 0,
+                 scale: 0.8,
+                 rotation: (index, target) => target.id === 'pz-pizza2' ? -30 : 30,
+                 duration: 1
+             });
+
+             // Card 2 (Margherita)
+             gsap.from(".pz-section.pz-three .pz-card:nth-child(2) .mid-card-img", {
+                 scrollTrigger: {
+                     trigger: ".pz-section.pz-three .pz-card:nth-child(2)",
+                     start: "top 95%",
+                     end: "top 55%",
+                     scrub: true,
+                 },
+                 scale: 0.6,
+                 opacity: 0,
+                 y: 50,
+                 duration: 1
+             });
+
+             // Card 3 (Pizza 1)
+             gsap.from(".pz-section.pz-three .pz-card:nth-child(3) #pz-pizza1, .pz-section.pz-three .pz-card:nth-child(3) .pz-sweetcorn2", {
+                 scrollTrigger: {
+                     trigger: ".pz-section.pz-three .pz-card:nth-child(3)",
+                     start: "top 95%",
+                     end: "top 55%",
+                     scrub: true,
+                 },
+                 x: (index, target) => target.id === 'pz-pizza1' ? -150 : 150,
+                 opacity: 0,
+                 scale: 0.8,
+                 rotation: (index, target) => target.id === 'pz-pizza1' ? -30 : 30,
+                 duration: 1
+             });
+        });
      }
 }
 

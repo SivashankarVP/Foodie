@@ -149,6 +149,48 @@
         .secondary-btn:hover {
             background: rgba(255,255,255,0.2);
         }
+        @media(max-width: 600px) {
+            .success-wrapper {
+                padding: 100px 4%;
+            }
+            .success-icon {
+                font-size: 60px;
+            }
+            .success-title {
+                font-size: 28px;
+            }
+            .success-info {
+                font-size: 14px;
+                margin-bottom: 25px;
+            }
+            .order-details-box {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                padding: 15px;
+            }
+            .order-detail-item p {
+                font-size: 16px;
+            }
+            .timeline::before {
+                left: 10px;
+            }
+            .timeline-item {
+                padding-left: 35px;
+            }
+            .timeline-item::before {
+                left: 2px;
+            }
+            .btn-row {
+                flex-direction: column;
+                gap: 12px;
+                width: 100%;
+            }
+            .success-btn {
+                width: 100%;
+                text-align: center;
+                padding: 12px;
+            }
+        }
     </style>
 </head>
 <body style="background:#000;">

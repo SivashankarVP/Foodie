@@ -26,6 +26,30 @@
     <title>Popular Restaurants - Foodie</title>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        @media(max-width: 992px) {
+            .restaurant-details-card {
+                margin: -50px 20px 30px 20px !important;
+                padding: 30px 20px !important;
+            }
+        }
+        @media(max-width: 600px) {
+            #restaurant-name-heading {
+                font-size: 30px !important;
+            }
+            .meta-info {
+                gap: 15px !important;
+            }
+            .meta-item {
+                padding: 8px 15px !important;
+                font-size: 13px !important;
+            }
+            .coupons-container {
+                grid-template-columns: 1fr !important;
+                gap: 15px !important;
+            }
+        }
+    </style>
 </head>
 <body style="background:#000;">
 
@@ -83,7 +107,7 @@
             </div>
 
             <!-- Double Coupon Display -->
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; width: 100%; margin-top: 30px;">
+            <div class="coupons-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; width: 100%; margin-top: 30px;">
                 <div class="offer-banner" style="background: linear-gradient(90deg, #ff9800, #ff5722); padding: 15px 20px; border-radius: 15px; display: flex; align-items: center; gap: 10px; box-shadow: 0 5px 15px rgba(255, 152, 0, 0.2);">
                     <i class="ri-percent-line" style="font-size: 22px; background: rgba(255,255,255,0.2); padding: 6px; border-radius: 50%;"></i>
                     <div style="text-align: left;">

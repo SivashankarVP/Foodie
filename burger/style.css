@@ -123,7 +123,6 @@ nav{
     position: absolute;
     width: 35%;
     z-index: 2;
-    transition: all cubic-bezier(0.19, 1, 0.22, 1)0.5s;
 }
 
 #tomato{
@@ -132,8 +131,6 @@ nav{
     left: 32%;
     width: 15%;
     z-index: 1;
-    transition: all cubic-bezier(0.19, 1, 0.22, 1)0.5s;
-
 }
 
 #onion{
@@ -142,8 +139,6 @@ nav{
     z-index: 3;
     top: 55%;
     right: 30%;
-    transition: all cubic-bezier(0.19, 1, 0.22, 1)0.5s;
-
 }
 
 #bleaf{
@@ -152,8 +147,6 @@ nav{
     transform: rotate(60deg);
     position: absolute;
     width: 18%;
-    transition: all cubic-bezier(0.19, 1, 0.22, 1)0.5s;
-
 }
 
 #chilli{
@@ -162,8 +155,6 @@ nav{
     transform: rotate(-90deg);
     position: absolute;
     width: 12%;
-    transition: all cubic-bezier(0.19, 1, 0.22, 1)0.5s;
-
 }
 
 #leaf3{
@@ -243,6 +234,11 @@ nav{
     background-color: #fff;
 }
 
+.mid-card-img {
+    display: none;
+}
+
+
 .card h1{
     margin-top:40vh;
     font-size:3vw;
@@ -269,7 +265,6 @@ nav{
     transform:translateX(-50%);
     z-index:3;
     will-change:transform;
-    transition:all .5s cubic-bezier(.19,1,.22,1);
 }
 
 #burger2{
@@ -280,7 +275,6 @@ nav{
     transform: translateX(-50%);
     z-index: 2;
     will-change: transform;
-    transition: all .5s cubic-bezier(.19,1,.22,1);
 }
 
 .lemon{
@@ -289,7 +283,6 @@ nav{
     left: 50%;
     width: 55%;
     transform: translateX(-50%);
-    transition: all .5s cubic-bezier(0.19,1,0.22,1);
     z-index: 2;
     will-change: transform;
 }
@@ -605,6 +598,16 @@ nav i{
     width:220px;
 }
 
+.mid-card-img {
+    display: block;
+    position: absolute;
+    top: -5%;
+    left: 50%;
+    width: 55%;
+    transform: translateX(-50%);
+    z-index: 3;
+}
+
 }
 
 /* Mobile */
@@ -636,29 +639,85 @@ nav i{
 }
 
 #burger{
-    width:82%;
+    width:70%;
 }
 
 #tomato{
-    width:30%;
+    width:25%;
     left:15%;
 }
 
 #onion{
-    width:35%;
+    width:28%;
     right:8%;
 }
 
 #bleaf{
-    width:30%;
+    width:25%;
 }
 
 #chilli{
-    width:22%;
+    width:18%;
 }
 
 #leaf3{
-    width:35%;
+    width:30%;
+}
+
+.card h1{
+    font-size:38px;
+    margin-top:150px;
+}
+
+.fanta-card h1 {
+    font-size:38px;
+    margin-top:150px;
+}
+
+.pz-card h1 {
+    font-size:38px;
+    margin-top:150px;
+}
+
+.restaurants{
+    padding:60px 4%;
+}
+
+.restaurant-title{
+    margin-bottom:30px;
+}
+
+.restaurant-title h1{
+    font-size:2.2rem;
+}
+
+.restaurant-title p{
+    font-size:15px;
+}
+
+.restaurant-list{
+    grid-template-columns:repeat(3, minmax(100px,1fr));
+    gap:30px 15px;
+}
+
+.restaurant-item img{
+    width:90px;
+    height:90px;
+    border-width:3px;
+}
+
+.restaurant-item span{
+    font-size:14px;
+    margin-top:10px;
+}
+
+.view-btn{
+    margin-top:30px;
+}
+
+.view-btn button{
+    padding:12px 30px;
+    font-size:16px;
 }
 
 .rght-two h1{
@@ -698,27 +757,37 @@ nav i{
 }
 
 #burger{
-    width:95%;
+    width:80%;
 }
 
 #tomato{
-    width:34%;
-}
-
-#onion{
-    width:42%;
-}
-
-#bleaf{
-    width:40%;
-}
-
-#chilli{
     width:28%;
 }
 
+#onion{
+    width:32%;
+}
+
+#bleaf{
+    width:28%;
+}
+
+#chilli{
+    width:20%;
+}
+
 #leaf3{
-    width:45%;
+    width:32%;
+}
+
+.restaurant-list{
+    grid-template-columns:repeat(2, minmax(100px,1fr));
+    gap:25px 15px;
+}
+
+.restaurant-item img{
+    width:85px;
+    height:85px;
 }
 
 .rght-two h1{
@@ -1034,30 +1103,30 @@ nav i{
 @media(max-width:768px){
     .fanta-one { overflow:hidden; }
     .fanta-one h1 { font-size:28vw; }
-    #fanta-fanta { width:82%; }
-    #fanta-orange-cut { width:30%; left:15%; }
-    #fanta-orange { width:35%; right:8%; }
-    #fanta-leaf { width:30%; }
-    #fanta-leaf2 { width:22%; }
-    #fanta-leaf3 { width:35%; }
+    #fanta-fanta { width:70%; }
+    #fanta-orange-cut { width:25%; left:15%; }
+    #fanta-orange { width:28%; right:8%; }
+    #fanta-leaf { width:25%; }
+    #fanta-leaf2 { width:18%; }
+    #fanta-leaf3 { width:30%; }
     .fanta-rght-two h1 { font-size:42px; }
     .fanta-rght-two p { font-size:15px; line-height:28px; }
     .fanta-card { width:90%; height:500px; }
-    .fanta-card h1 { font-size:38px; }
+    .fanta-card h1 { font-size:38px; margin-top:150px; }
     .fanta-card button { font-size:16px; }
 }
 @media(max-width:480px){
     .fanta-one h1 { font-size:30vw; }
-    #fanta-fanta { width:95%; }
-    #fanta-orange-cut { width:34%; }
-    #fanta-orange { width:42%; }
-    #fanta-leaf { width:40%; }
-    #fanta-leaf2 { width:28%; }
-    #fanta-leaf3 { width:45%; }
+    #fanta-fanta { width:80%; }
+    #fanta-orange-cut { width:28%; }
+    #fanta-orange { width:32%; }
+    #fanta-leaf { width:28%; }
+    #fanta-leaf2 { width:20%; }
+    #fanta-leaf3 { width:32%; }
     .fanta-rght-two h1 { font-size:34px; }
     .fanta-rght-two p { width:95%; font-size:14px; }
     .fanta-card { width:94%; height:460px; }
-    .fanta-card h1 { font-size:32px; }
+    .fanta-card h1 { font-size:32px; margin-top:150px; }
     .fanta-card button { padding:14px 34px; }
 }
 /* Floating Glassmorphic Theme Selector */
@@ -1370,29 +1439,29 @@ nav i{
 @media(max-width:768px){
     .pz-one { overflow:hidden; }
     .pz-one h1 { font-size:28vw; }
-    #pz-pizza { width:82%; }
-    #pz-tomato { width:30%; left:15%; }
-    #pz-onion { width:35%; right:8%; }
-    #pz-cheese { width:30%; }
-    #pz-chilli { width:22%; }
-    #pz-leaf3 { width:35%; }
+    #pz-pizza { width:70%; }
+    #pz-tomato { width:25%; left:15%; }
+    #pz-onion { width:28%; right:8%; }
+    #pz-cheese { width:25%; }
+    #pz-chilli { width:18%; }
+    #pz-leaf3 { width:30%; }
     .pz-rght-two h1 { font-size:42px; }
     .pz-rght-two p { font-size:15px; line-height:28px; }
     .pz-card { width:90%; height:500px; }
-    .pz-card h1 { font-size:38px; }
+    .pz-card h1 { font-size:38px; margin-top:150px; }
     .pz-card button { font-size:16px; }
 }
 @media(max-width:480px){
     .pz-one h1 { font-size:30vw; }
-    #pz-pizza { width:95%; }
-    #pz-tomato { width:34%; }
-    #pz-onion { width:42%; }
-    #pz-cheese { width:40%; }
-    #pz-chilli { width:28%; }
-    #pz-leaf3 { width:45%; }
+    #pz-pizza { width:80%; }
+    #pz-tomato { width:28%; }
+    #pz-onion { width:32%; }
+    #pz-cheese { width:28%; }
+    #pz-chilli { width:20%; }
+    #pz-leaf3 { width:32%; }
     .pz-rght-two h1 { font-size:34px; }
     .pz-rght-two p { width:95%; font-size:14px; }
     .pz-card { width:94%; height:460px; }
-    .pz-card h1 { font-size:32px; }
+    .pz-card h1 { font-size:32px; margin-top:150px; }
     .pz-card button { padding:14px 34px; }
 }

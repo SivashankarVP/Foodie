@@ -401,6 +401,24 @@
         }
 
         @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+                justify-content: flex-start;
+                padding-top: 100px;
+                padding-bottom: 40px;
+                min-height: 100vh;
+            }
+            .home-back {
+                position: fixed;
+                top: 20px;
+                left: 20px;
+                right: 20px;
+                justify-content: center;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+                backdrop-filter: blur(15px);
+                -webkit-backdrop-filter: blur(15px);
+                z-index: 999;
+            }
             .auth-container {
                 flex-direction: column;
                 width: 90%;
@@ -425,6 +443,12 @@
             .auth-container.mobile-signup .sign-up-container {
                 display: block;
                 opacity: 1;
+            }
+            form {
+                padding: 30px 20px;
+            }
+            h1 {
+                font-size: 26px;
             }
         }
     </style>

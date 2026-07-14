@@ -215,6 +215,32 @@
                 grid-template-columns: repeat(2, 1fr);
             }
         }
+        @media(max-width: 600px) {
+            .checkout-wrapper {
+                padding: 100px 4%;
+            }
+            .checkout-title {
+                font-size: 28px;
+                margin-bottom: 20px;
+            }
+            .checkout-card {
+                padding: 20px;
+            }
+            .delivery-instructions {
+                grid-template-columns: 1fr;
+            }
+            .time-slots {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .time-slot {
+                text-align: center;
+                padding: 12px;
+            }
+            .summary-section {
+                padding: 20px;
+            }
+        }
     </style>
 </head>
 <body style="background:#000;">

@@ -125,6 +125,33 @@
         .pay-btn:hover {
             background: #ff7b00;
         }
+        @media(max-width: 768px) {
+            .payment-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+        @media(max-width: 600px) {
+            .payment-wrapper {
+                padding: 100px 4%;
+            }
+            .payment-title {
+                font-size: 28px;
+                margin-bottom: 20px;
+            }
+            .payment-card {
+                padding: 15px;
+            }
+            .payment-card-left span {
+                font-size: 15px;
+            }
+            .payment-card-left i {
+                font-size: 24px;
+            }
+            .pay-summary {
+                padding: 20px;
+            }
+        }
     </style>
 </head>
 <body style="background:#000;">

@@ -176,6 +176,8 @@
         @media(max-width: 992px) {
             .menu-container {
                 flex-direction: column;
+                padding: 100px 4% 50px 4%;
+                gap: 25px;
             }
             .categories-sidebar {
                 width: 100%;
@@ -183,9 +185,41 @@
                 overflow-x: auto;
                 position: relative;
                 top: 0;
+                padding: 5px;
+                gap: 12px;
+                background: transparent;
+                border: none;
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+            .categories-sidebar::-webkit-scrollbar {
+                display: none;
+            }
+            .categories-sidebar h2 {
+                display: none;
             }
             .category-item {
                 white-space: nowrap;
+                margin-bottom: 0;
+                font-size: 16px;
+                padding: 10px 20px;
+                flex: 0 0 auto;
+            }
+            .menu-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 20px;
+            }
+            .food-card {
+                height: 460px;
+                padding: 15px;
+            }
+            .food-image {
+                height: 160px;
+            }
+            .food-info h3 {
+                font-size: 20px;
             }
         }
     </style>
