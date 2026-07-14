@@ -3,9 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="My Account Profile - Foodie. Manage your account details, saved addresses, notification preferences, and wishlist.">
+    <meta name="keywords" content="foodie profile, user profile, account settings, saved addresses, wishlist, Sivashankar V P">
+    <meta name="author" content="Sivashankar V P">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sivashankar-vp.github.io/Foodie/profile.html">
+    <meta property="og:title" content="My Account Profile - Foodie">
+    <meta property="og:description" content="Manage your account details, saved addresses, notification preferences, and wishlist.">
+    <meta property="og:image" content="Assets/burger.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sivashankar-vp.github.io/Foodie/profile.html">
+    <meta property="twitter:title" content="My Account Profile - Foodie">
+    <meta property="twitter:description" content="Manage your account details, saved addresses, notification preferences, and wishlist.">
+    <meta property="twitter:image" content="Assets/burger.png">
+
+    <title>My Account Profile - Foodie</title>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <title>User Profile - Foodie</title>
     <style>
         .profile-wrapper {
             padding: 120px 8%;
@@ -163,7 +183,7 @@
             <!-- Sidebar Navigation -->
             <div class="profile-sidebar">
                 <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=200&auto=format&fit=crop" class="profile-avatar" alt="Avatar">
-                <h3 style="font-family:'Product Sans B';">Sivashankar VP</h3>
+                <h3 style="font-family:'Product Sans B';">Sivashankar V P</h3>
                 <p style="color:#aaa; font-size:14px;">sivashankar@example.com</p>
 
                 <div class="sidebar-menu">
@@ -198,7 +218,7 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label>Full Name</label>
-                                <input type="text" id="prof-name" value="Sivashankar VP" required>
+                                <input type="text" id="prof-name" value="Sivashankar V P" required>
                             </div>
                             <div class="form-group">
                                 <label>Email Address</label>
@@ -269,7 +289,7 @@
 <script>
     // Initialize profile data
     let profile = JSON.parse(localStorage.getItem('profile')) || {
-        name: 'Sivashankar VP',
+        name: 'Sivashankar V P',
         email: 'sivashankar@example.com',
         phone: '+91 98765 43210',
         city: 'Hyderabad'

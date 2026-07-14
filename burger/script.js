@@ -1,15 +1,24 @@
 // Timelines state variables
-let burgerTl1, burgerTl2, fantaTl1, fantaTl2;
+let burgerTl1, burgerTl2, fantaTl1, fantaTl2, pzTl1, pzTl2;
 
 function killTimelines() {
-    if (burgerTl1) { burgerTl1.scrollTrigger.kill(); burgerTl1.kill(); }
-    if (burgerTl2) { burgerTl2.scrollTrigger.kill(); burgerTl2.kill(); }
-    if (fantaTl1) { fantaTl1.scrollTrigger.kill(); fantaTl1.kill(); }
-    if (fantaTl2) { fantaTl2.scrollTrigger.kill(); fantaTl2.kill(); }
+    // Safely kill all active ScrollTrigger instances globally
+    if (typeof ScrollTrigger !== 'undefined') {
+        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    }
+    
+    // Safely kill timelines and nullify references to prevent memory leaks or running animations on other themes
+    if (burgerTl1) { burgerTl1.kill(); burgerTl1 = null; }
+    if (burgerTl2) { burgerTl2.kill(); burgerTl2 = null; }
+    if (fantaTl1) { fantaTl1.kill(); fantaTl1 = null; }
+    if (fantaTl2) { fantaTl2.kill(); fantaTl2 = null; }
+    if (pzTl1) { pzTl1.kill(); pzTl1 = null; }
+    if (pzTl2) { pzTl2.kill(); pzTl2 = null; }
     
     // Clear all GSAP inline styles to restore clean starting state
     gsap.set("#burger, #tomato, #onion, #bleaf, #chilli, #burger1, #burger2, .fries", {clearProps: "all"});
     gsap.set("#fanta-fanta, #fanta-orange-cut, #fanta-orange, #fanta-leaf, #fanta-leaf2, #fanta-leaf3, .fanta-lemon1, #fanta-cocacola, .fanta-lemon2, #fanta-pepsi", {clearProps: "all"});
+    gsap.set("#pz-pizza, #pz-tomato, #pz-onion, #pz-cheese, #pz-chilli, #pz-leaf3, .pz-sweetcorn1, #pz-pizza2, .pz-sweetcorn2, #pz-pizza1", {clearProps: "all"});
 }
 
 function initTimelines() {
@@ -158,27 +167,96 @@ function initTimelines() {
             xPercent: -50,
             yPercent: 0
         }, 'ca');
-    }
+    } else if (currentTheme === 'pizza') {
+         pzTl1 = gsap.timeline({scrollTrigger:{
+             trigger: ".pz-section.pz-two",
+             start: "0% 95%",
+             end: "70% 50%",
+             scrub: true,
+         }});
+
+          pzTl1.to("#pz-pizza",{
+              width: "32%",
+              top: "120%",
+              left: "4%"
+          }, 'onion1');
+          pzTl1.to("#pz-tomato",{
+              width: "12%",
+              top: "160%",
+              left: "21%"
+          }, 'onion1');
+          pzTl1.to("#pz-onion",{
+              width: "12%",
+              top: "160%",
+              right: "10%"
+          }, 'onion1');
+          pzTl1.to("#pz-cheese",{
+              width: "14%",
+              top: "110%",
+              rotate: "130deg",
+              left: "72%"
+          }, 'onion1');
+          pzTl1.to("#pz-chilli",{
+              width: "9%",
+              top: "110%",
+              rotate: "130deg",
+              left: "2%"
+          }, 'onion1');
+
+         pzTl2 = gsap.timeline({scrollTrigger:{
+             trigger: ".pz-section.pz-three",
+             start: "0% 95%",
+             end: "20% 50%",
+             scrub: true,
+         }});
+
+         pzTl2.from(".pz-sweetcorn1",{
+             rotate: "-90deg",
+             left: "-100%",
+             top: "110%"
+         }, 'ca');
+         pzTl2.from("#pz-pizza2",{
+             rotate: "-90deg",
+             top: "110%",
+             left: "-100%",
+         }, 'ca');
+
+         pzTl2.from(".pz-sweetcorn2",{
+             rotate: "90deg",
+             left: "100%",
+             top: "110%"
+         }, 'ca');
+         pzTl2.from("#pz-pizza1",{
+             rotate: "90deg",
+             top: "110%",
+             left: "100%",
+         }, 'ca');
+
+         pzTl2.to("#pz-tomato",{
+             width:"15%",
+             left: "42.5%",
+             top: "204%"
+         }, 'ca');
+         pzTl2.to("#pz-pizza",{
+             width:"27%",
+             top: "210%",
+             left: "36.5%",
+         }, 'ca');
+     }
 }
 
 // Theme Switcher Logic
 let currentTheme = 'burger';
 
 function switchTheme(theme) {
-    if (theme === 'pizza') {
-        const pizzaBtn = document.getElementById('pizza-theme');
-        if (pizzaBtn) pizzaBtn.classList.add('active-theme');
-        alert("Pizza theme is coming soon!");
-        if (pizzaBtn) pizzaBtn.classList.remove('active-theme');
-        const activeBtn = document.getElementById(currentTheme + '-theme');
-        if (activeBtn) activeBtn.classList.add('active-theme');
-        return;
-    }
-
     currentTheme = theme;
+    
+    // Reset scroll position to top to prevent GSAP trigger/animation misalignment
+    window.scrollTo(0, 0);
     
     const burgerSections = document.querySelectorAll('.burger-section');
     const fantaSections = document.querySelectorAll('.fanta-section');
+    const pzSections = document.querySelectorAll('.pz-section');
     
     // Clear active theme class on buttons
     const burgerBtn = document.getElementById('burger-theme');
@@ -192,6 +270,7 @@ function switchTheme(theme) {
     if (theme === 'burger') {
         burgerSections.forEach(el => el.style.display = '');
         fantaSections.forEach(el => el.style.display = 'none');
+        pzSections.forEach(el => el.style.display = 'none');
         
         if (burgerBtn) burgerBtn.classList.add('active-theme');
 
@@ -205,6 +284,7 @@ function switchTheme(theme) {
     } else if (theme === 'fanta') {
         burgerSections.forEach(el => el.style.display = 'none');
         fantaSections.forEach(el => el.style.display = 'flex');
+        pzSections.forEach(el => el.style.display = 'none');
         
         if (fantaBtn) fantaBtn.classList.add('active-theme');
 
@@ -215,11 +295,29 @@ function switchTheme(theme) {
         if (homeLink) homeLink.setAttribute('href', '#fanta-home');
         if (flavourLink) flavourLink.setAttribute('href', '#fanta-flavour');
         if (menuLink) menuLink.setAttribute('href', '#fanta-menu-section');
+    } else if (theme === 'pizza') {
+        burgerSections.forEach(el => el.style.display = 'none');
+        fantaSections.forEach(el => el.style.display = 'none');
+        pzSections.forEach(el => el.style.display = 'flex');
+        
+        if (pizzaBtn) pizzaBtn.classList.add('active-theme');
+
+        // Update Nav links hrefs
+        const homeLink = document.querySelector('.cntr-nav a[href*="home"]');
+        const flavourLink = document.querySelector('.cntr-nav a[href*="flavour"]');
+        const menuLink = document.querySelector('.cntr-nav a[href*="menu-section"]');
+        if (homeLink) homeLink.setAttribute('href', '#pz-home');
+        if (flavourLink) flavourLink.setAttribute('href', '#pz-flavour');
+        if (menuLink) menuLink.setAttribute('href', '#pz-menu-section');
     }
     
     // Recreate the active theme's timelines when elements are visible in DOM
     initTimelines();
     ScrollTrigger.refresh();
+    // Delayed refresh to let browser layout calculate heights correctly
+    setTimeout(() => {
+        ScrollTrigger.refresh();
+    }, 100);
 }
 
 // Setup Event Listeners

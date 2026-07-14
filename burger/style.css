@@ -928,7 +928,7 @@ nav i{
     #FF8A00 38%,
     #F97316 60%,
     #D95D00 80%,
-    #8A3A00 100%
+    #ff0000 100%
 );
 }
 
@@ -1137,4 +1137,262 @@ nav i{
         height: 40px;
         font-size: 20px;
     }
+}
+
+/* ==========================================================================
+   Pizza Theme Styles & Animations
+   ========================================================================== */
+
+.pz-one {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+   background: radial-gradient(
+    circle at center,
+    #FF7043 0%,
+    #E53935 35%,
+    #B71C1C 70%,
+    #2B0000 100%
+);
+}
+
+.pz-one h1 {
+    font-size: 25vw;
+    font-family: Product Sans B;
+    color: #fff;
+}
+
+#pz-pizza {
+    position: absolute;
+    width: 40%;
+    z-index: 100;
+}
+
+#pz-tomato {
+    position: absolute;
+    top: 10%;
+    left: 32%;
+    width: 15%;
+    z-index: 99;
+}
+
+#pz-onion {
+    position: absolute;
+    width: 20%;
+    z-index: 101;
+    top: 55%;
+    right: 30%;
+}
+
+#pz-cheese {
+    top: 10%;
+    left: 0%;
+    transform: rotate(60deg);
+    position: absolute;
+    width: 18%;
+    z-index: 98;
+}
+
+#pz-chilli {
+    top: 70%;
+    left: 80%;
+    transform: rotate(-90deg);
+    position: absolute;
+    width: 12%;
+    z-index: 98;
+}
+
+#pz-leaf3 {
+    position: absolute;
+    width: 20%;
+    top: 10%;
+    right: 0%;
+    z-index: 97;
+}
+
+.pz-two {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+   background: radial-gradient(
+        circle at center,
+        #7A3B16 0%,
+        #5A2612 30%,
+        #33160E 65%,
+        #140A08 100%
+    );
+}
+
+.pz-lft-two, .pz-rght-two {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5vh;
+    width: 50%;
+    height: 100%;
+}
+
+.pz-lft-two svg {
+    margin-top: 50vh;
+    width: 90%;
+    transform: rotateX(50deg);
+}
+
+.pz-rght-two h1 {
+    color: #fff;
+    font-size: 5vw;
+}
+
+.pz-rght-two p {
+    font-size: 1vw;
+    color: #fff;
+    width: 80%;
+}
+
+.pz-three {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5vw;
+    width: 100%;
+    height: 100vh;
+     background: radial-gradient(
+    circle at center,
+    #FF7043 0%,
+    #E53935 35%,
+    #B71C1C 70%,
+    #2B0000 100%
+);
+}
+
+.pz-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2vh;
+    width: 25vw;
+    height: 70vh;
+    margin-top: 10vh;
+    border-radius: 20px;
+    background-color: #fff;
+}
+
+.pz-card h1 {
+    margin-top: 40vh;
+    font-size: 3vw;
+    position: relative;
+    z-index: 5;
+}
+
+.pz-card button {
+    font-size: 1vw;
+    border-radius: 50px;
+    border: none;
+    color: #fff;
+    background-color: rgb(255, 149, 0);
+    padding: 1vw 2vw;
+    cursor: pointer;
+    transition: 0.3s;
+    position: relative;
+    z-index: 5;
+}
+
+.pz-card button:hover {
+    background-color: rgb(230, 130, 0);
+}
+
+#pz-pizza2 {
+    top: -15%;
+    position: absolute;
+    width: 23vw;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    z-index: 3;
+}
+
+#pz-pizza1 {
+    top: -15%;
+    position: absolute;
+    width: 23vw;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    z-index: 2;
+}
+
+.pz-sweetcorn {
+    top: -30%;
+    position: absolute;
+    left: 50%;
+    width: 16vw;
+    transform: translate(-50%, 0%);
+    z-index: 2;
+}
+
+/* Pizza Responsive Styles */
+@media(max-width:1400px){
+    .pz-one h1 { font-size:22vw; }
+    #pz-pizza { width:42%; }
+    .pz-card { width:28vw; }
+}
+@media(max-width:1200px){
+    #pz-pizza { width:45%; }
+    #pz-tomato { width:18%; }
+    #pz-onion { width:22%; }
+    .pz-card { width:30vw; height:65vh; }
+    .pz-card h1 { font-size:38px; }
+}
+@media(max-width:992px){
+    .pz-one h1 { font-size:24vw; }
+    #pz-pizza { width:60%; }
+    #pz-tomato { width:22%; }
+    #pz-onion { width:26%; }
+    #pz-cheese { width:25%; }
+    #pz-chilli { width:18%; }
+    .pz-two { flex-direction:column; height:auto; padding:80px 0; }
+    .pz-lft-two, .pz-rght-two { width:100%; align-items:center; text-align:center; }
+    .pz-lft-two svg { margin-top:0; width:70%; }
+    .pz-rght-two { padding:40px; }
+    .pz-rght-two h1 { font-size:55px; }
+    .pz-rght-two p { width:90%; font-size:16px; line-height:28px; }
+    .pz-three { flex-direction:column; height:auto; padding:120px 0; }
+    .pz-card { width:80%; height:520px; }
+    .pz-card h1 { font-size:45px; }
+    .pz-card button { font-size:18px; padding:15px 40px; }
+    #pz-pizza2 { width:55%; }
+    #pz-pizza1 { width:55%; }
+    .pz-sweetcorn { width: 150px; }
+}
+@media(max-width:768px){
+    .pz-one { overflow:hidden; }
+    .pz-one h1 { font-size:28vw; }
+    #pz-pizza { width:82%; }
+    #pz-tomato { width:30%; left:15%; }
+    #pz-onion { width:35%; right:8%; }
+    #pz-cheese { width:30%; }
+    #pz-chilli { width:22%; }
+    #pz-leaf3 { width:35%; }
+    .pz-rght-two h1 { font-size:42px; }
+    .pz-rght-two p { font-size:15px; line-height:28px; }
+    .pz-card { width:90%; height:500px; }
+    .pz-card h1 { font-size:38px; }
+    .pz-card button { font-size:16px; }
+}
+@media(max-width:480px){
+    .pz-one h1 { font-size:30vw; }
+    #pz-pizza { width:95%; }
+    #pz-tomato { width:34%; }
+    #pz-onion { width:42%; }
+    #pz-cheese { width:40%; }
+    #pz-chilli { width:28%; }
+    #pz-leaf3 { width:45%; }
+    .pz-rght-two h1 { font-size:34px; }
+    .pz-rght-two p { width:95%; font-size:14px; }
+    .pz-card { width:94%; height:460px; }
+    .pz-card h1 { font-size:32px; }
+    .pz-card button { padding:14px 34px; }
 }
