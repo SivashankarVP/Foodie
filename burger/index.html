@@ -39,6 +39,32 @@
 
 <body>
 
+    <!-- Preloader Overlay -->
+    <div id="preloader">
+        <div class="loader-content">
+            <div class="spinner"></div>
+            <h2>Foodie</h2>
+            <p>Preparing your premium experience...</p>
+        </div>
+    </div>
+    <script>
+        window.addEventListener('load', () => {
+            hidePreloader();
+        });
+        setTimeout(() => {
+            hidePreloader();
+        }, 5000);
+        function hidePreloader() {
+            const preloader = document.getElementById('preloader');
+            if (preloader && !preloader.classList.contains('fade-out')) {
+                preloader.classList.add('fade-out');
+                setTimeout(() => {
+                    preloader.remove();
+                }, 500);
+            }
+        }
+    </script>
+
     <div id="main">
 
         <!-- ================= NAVBAR ================= -->
