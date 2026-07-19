@@ -346,7 +346,7 @@
                     <span>Grand Total</span>
                     <span id="grand-total">₹0</span>
                 </div>
-                <button class="checkout-btn" onclick="window.location.href='checkout.html'">
+                <button class="checkout-btn" onclick="proceedToCheckout()">
                     Proceed to Checkout <i class="ri-arrow-right-line"></i>
                 </button>
             </div>
@@ -358,6 +358,19 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script>
     let discountAmount = parseInt(localStorage.getItem('discountAmount')) || 0;
+
+    function proceedToCheckout() {
+        const profile = localStorage.getItem('profile');
+        if (profile) {
+            window.location.href = 'checkout.html';
+        } else {
+            alert('Please login or create an account to proceed to checkout.');
+            setTimeout(() => {
+                window.location.href = 'login.html';
+            }, 800);
+        }
+    }
+
 
     function renderCart() {
         const cart = JSON.parse(localStorage.getItem('cart')) || [];

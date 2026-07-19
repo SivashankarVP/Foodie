@@ -599,21 +599,42 @@
             document.getElementById('google-modal').style.display = 'none';
         }
 
+        // Helper to retrieve and initialize users list
+        function getUsersList() {
+            let users = JSON.parse(localStorage.getItem('users'));
+            if (!users || !Array.isArray(users)) {
+                users = [
+                    { name: "Sivashankar V P", username: "siva", email: "sivashankar@gmail.com", password: "123" }
+                ];
+                localStorage.setItem('users', JSON.stringify(users));
+            }
+            return users;
+        }
+
         // Select Google Email Auth
         function selectGoogleAccount(name, email) {
             hideGoogleModal();
             
-            // Set dynamic profile values
+            const users = getUsersList();
+            let matchedUser = users.find(u => u.email.toLowerCase() === email.toLowerCase());
+            if (!matchedUser) {
+                matchedUser = { name: name, username: email.split('@')[0], email: email, password: "google-authenticated-pass" };
+                users.push(matchedUser);
+                localStorage.setItem('users', JSON.stringify(users));
+            }
+
             const profileData = {
-                name: name,
-                email: email,
-                phone: "+91 98765 43210",
-                city: "Hyderabad"
+                name: matchedUser.name,
+                email: matchedUser.email,
+                phone: matchedUser.phone || "+91 98765 43210",
+                city: matchedUser.city || "Hyderabad"
             };
             localStorage.setItem('profile', JSON.stringify(profileData));
             
-            alert(`Successfully authenticated with Google account: ${email}`);
-            window.location.href = 'index.html';
+            alert(`Successfully authenticated as ${matchedUser.name}!`);
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 800);
         }
 
         // Handle Signup
@@ -631,15 +652,15 @@
             }
 
             // Save user in registered accounts database
-            const users = JSON.parse(localStorage.getItem('users')) || [];
-            const userExists = users.some(u => u.username === username || u.email === email);
+            const users = getUsersList();
+            const userExists = users.some(u => u.username.toLowerCase() === username.toLowerCase() || u.email.toLowerCase() === email.toLowerCase());
 
             if (userExists) {
                 alert("Username or Email already registered!");
                 return;
             }
 
-            const newUser = { name, username, email, password: pass };
+            const newUser = { name, username, email, password: pass, phone: "", city: "" };
             users.push(newUser);
             localStorage.setItem('users', JSON.stringify(users));
 
@@ -652,37 +673,26 @@
             };
             localStorage.setItem('profile', JSON.stringify(profileData));
 
-            alert("Account created successfully!");
-            window.location.href = 'index.html';
+            alert("Account created and saved successfully!");
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 800);
         }
 
         // Handle Signin
         function handleSignIn(event) {
             event.preventDefault();
-            const userInput = document.getElementById('login-user').value.trim();
+            const userInput = document.getElementById('login-user').value.trim().toLowerCase();
             const passInput = document.getElementById('login-pass').value;
 
-            const users = JSON.parse(localStorage.getItem('users')) || [];
+            const users = getUsersList();
             
-            // Validate credentials
+            // Validate credentials against saved users
             const matchedUser = users.find(u => 
-                (u.username === userInput || u.email === userInput) && u.password === passInput
+                (u.username.toLowerCase() === userInput || u.email.toLowerCase() === userInput) && u.password === passInput
             );
 
             if (!matchedUser) {
-                // If database is empty, let guest proceed with dummy verification
-                if (userInput.toLowerCase() === 'admin' || userInput.toLowerCase() === 'siva') {
-                    const profileData = {
-                        name: "Sivashankar V P",
-                        email: "siva@foodie.com",
-                        phone: "+91 99999 88888",
-                        city: "Hyderabad"
-                    };
-                    localStorage.setItem('profile', JSON.stringify(profileData));
-                    alert("Logged in successfully!");
-                    window.location.href = 'index.html';
-                    return;
-                }
                 alert("Invalid username/email or password!");
                 return;
             }
@@ -690,13 +700,15 @@
             const profileData = {
                 name: matchedUser.name,
                 email: matchedUser.email,
-                phone: "",
-                city: ""
+                phone: matchedUser.phone || "",
+                city: matchedUser.city || ""
             };
             localStorage.setItem('profile', JSON.stringify(profileData));
 
-            alert("Logged in successfully!");
-            window.location.href = 'index.html';
+            alert(`Welcome back, ${matchedUser.name}! Logged in successfully.`);
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 800);
         }
 
         // Check window size on load to show mobile links
@@ -708,6 +720,7 @@
         window.addEventListener('resize', checkScreenSize);
         window.addEventListener('load', checkScreenSize);
     </script>
+    <script src="script.js"></script>
     <script src="particles-init.js"></script>
 </body>
 </html>

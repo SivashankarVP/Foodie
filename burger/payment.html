@@ -292,6 +292,8 @@
         const gst = Math.round(subtotal * 0.18);
         const total = subtotal + gst + 40 - discountAmount;
 
+        const profile = JSON.parse(localStorage.getItem('profile')) || { name: 'Guest User', email: 'guest@foodie.com' };
+
         const newOrder = {
             orderNumber: 'FD' + Math.floor(100000 + Math.random() * 900000),
             date: new Date().toLocaleDateString('en-IN', { year: 'numeric', month: 'short', day: 'numeric' }),
@@ -300,7 +302,9 @@
             price: Math.max(0, total),
             paymentMethod: document.querySelector('.payment-card.active span').innerText,
             status: 'Delivered', // For order history representation
-            address: localStorage.getItem('delivery_address') || 'Home Address'
+            address: localStorage.getItem('delivery_address') || 'Home Address',
+            userEmail: profile.email,
+            userName: profile.name
         };
 
         orderHistory.unshift(newOrder);

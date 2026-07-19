@@ -586,13 +586,17 @@ function switchTheme(theme) {
         
         if (burgerBtn) burgerBtn.classList.add('active-theme');
 
-        // Update Nav links hrefs
+        // Update Nav links hrefs only appropriately depending on whether we are on index.html or a subpage
+        const isIndexPage = window.location.pathname.includes('index.html') || window.location.pathname.endsWith('/') || window.location.pathname.endsWith('/burger');
+        const prefix = isIndexPage ? '' : 'index.html';
+
         const homeLink = document.querySelector('.cntr-nav a[href*="home"]');
         const flavourLink = document.querySelector('.cntr-nav a[href*="flavour"]');
         const menuLink = document.querySelector('.cntr-nav a[href*="menu-section"]');
-        if (homeLink) homeLink.setAttribute('href', '#home');
-        if (flavourLink) flavourLink.setAttribute('href', '#flavour');
-        if (menuLink) menuLink.setAttribute('href', '#menu-section');
+
+        if (homeLink) homeLink.setAttribute('href', prefix + '#home');
+        if (flavourLink) flavourLink.setAttribute('href', prefix + '#flavour');
+        if (menuLink) menuLink.setAttribute('href', prefix + '#menu-section');
     } else if (theme === 'fanta') {
         burgerSections.forEach(el => el.style.display = 'none');
         fantaSections.forEach(el => el.style.display = 'flex');
@@ -600,13 +604,16 @@ function switchTheme(theme) {
         
         if (fantaBtn) fantaBtn.classList.add('active-theme');
 
-        // Update Nav links hrefs
+        const isIndexPage = window.location.pathname.includes('index.html') || window.location.pathname.endsWith('/') || window.location.pathname.endsWith('/burger');
+        const prefix = isIndexPage ? '' : 'index.html';
+
         const homeLink = document.querySelector('.cntr-nav a[href*="home"]');
         const flavourLink = document.querySelector('.cntr-nav a[href*="flavour"]');
         const menuLink = document.querySelector('.cntr-nav a[href*="menu-section"]');
-        if (homeLink) homeLink.setAttribute('href', '#fanta-home');
-        if (flavourLink) flavourLink.setAttribute('href', '#fanta-flavour');
-        if (menuLink) menuLink.setAttribute('href', '#fanta-menu-section');
+
+        if (homeLink) homeLink.setAttribute('href', prefix + '#fanta-home');
+        if (flavourLink) flavourLink.setAttribute('href', prefix + '#fanta-flavour');
+        if (menuLink) menuLink.setAttribute('href', prefix + '#fanta-menu-section');
     } else if (theme === 'pizza') {
         burgerSections.forEach(el => el.style.display = 'none');
         fantaSections.forEach(el => el.style.display = 'none');
@@ -614,13 +621,16 @@ function switchTheme(theme) {
         
         if (pizzaBtn) pizzaBtn.classList.add('active-theme');
 
-        // Update Nav links hrefs
+        const isIndexPage = window.location.pathname.includes('index.html') || window.location.pathname.endsWith('/') || window.location.pathname.endsWith('/burger');
+        const prefix = isIndexPage ? '' : 'index.html';
+
         const homeLink = document.querySelector('.cntr-nav a[href*="home"]');
         const flavourLink = document.querySelector('.cntr-nav a[href*="flavour"]');
         const menuLink = document.querySelector('.cntr-nav a[href*="menu-section"]');
-        if (homeLink) homeLink.setAttribute('href', '#pz-home');
-        if (flavourLink) flavourLink.setAttribute('href', '#pz-flavour');
-        if (menuLink) menuLink.setAttribute('href', '#pz-menu-section');
+
+        if (homeLink) homeLink.setAttribute('href', prefix + '#pz-home');
+        if (flavourLink) flavourLink.setAttribute('href', prefix + '#pz-flavour');
+        if (menuLink) menuLink.setAttribute('href', prefix + '#pz-menu-section');
     }
     
     // Recreate the active theme's timelines when elements are visible in DOM
@@ -687,3 +697,50 @@ updateGlobalCartCount();
 
 // Set initial theme
 switchTheme('burger');
+
+// Check Login Status and Update Navbar
+document.addEventListener("DOMContentLoaded", () => {
+    const profileStr = localStorage.getItem('profile');
+    if (profileStr) {
+        try {
+            const profile = JSON.parse(profileStr);
+            if (profile && profile.name) {
+                const firstName = profile.name.split(' ')[0];
+                const signBtns = document.querySelectorAll('.sign-btn');
+                signBtns.forEach(btn => {
+                    btn.innerHTML = `<i class="ri-user-line" style="margin-right:5px; vertical-align:middle;"></i> ${firstName}`;
+                    btn.href = 'profile.html';
+                });
+            }
+        } catch(e) {
+            console.error('Error parsing profile data', e);
+        }
+    }
+});
+
+// Custom Toast Notification Function
+function showToast(message, type = 'success') {
+    const toast = document.createElement('div');
+    toast.className = `custom-toast ${type}`;
+    const icon = type === 'error' ? '<i class="ri-error-warning-line"></i>' : '<i class="ri-checkbox-circle-line"></i>';
+    toast.innerHTML = `${icon} <span>${message}</span>`;
+    document.body.appendChild(toast);
+    
+    // Trigger reflow to play animation
+    setTimeout(() => {
+        toast.classList.add('show');
+    }, 10);
+
+    setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => toast.remove(), 400);
+    }, 3000);
+}
+
+// Override default window.alert globally
+window.alert = function(msg) {
+    // Determine type by looking for words like 'invalid', 'error', 'wrong', 'already' in message
+    const msgLower = msg.toLowerCase();
+    const type = (msgLower.includes('invalid') || msgLower.includes('error') || msgLower.includes('do not match') || msgLower.includes('already')) ? 'error' : 'success';
+    showToast(msg, type);
+};
