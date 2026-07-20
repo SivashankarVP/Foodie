@@ -1,5 +1,7 @@
 # 🍔 CraveGo - Interactive Food Ordering & Management Platform
 
+**🚀 Live Demo:** [https://cravego.netlify.app/](https://cravego.netlify.app/)
+
 Welcome to **CraveGo**, an enterprise-grade, multi-tier food delivery application engineered for performance, security, and exceptional user experience. CraveGo features a complete commercial food ordering flow matching industry standards, built with a robust Java Servlet backend and a highly interactive, glassmorphic frontend.
 
 ## 🌟 Standout & Unique Features
