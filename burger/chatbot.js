@@ -1,4 +1,4 @@
-// Foodie Chatbot Implementation (Enhanced Version)
+// CraveGo Chatbot Implementation (Enhanced Version)
 document.addEventListener("DOMContentLoaded", () => {
     // 1. DYNAMICALLY CREATE CHATBOT HTML
     const launcher = document.createElement("div");
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="chatbot-header-info">
                 <div class="chatbot-avatar" style="color: #fff; font-size: 22px;"><i class="ri-robot-2-fill"></i></div>
                 <div>
-                    <h3 class="chatbot-title">Foodie Assistant</h3>
+                    <h3 class="chatbot-title">CraveGo Assistant</h3>
                     <p class="chatbot-status">Online</p>
                 </div>
             </div>
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         <div class="chatbot-messages" id="chatbot-messages">
             <div class="message bot">
-                Hello! 👋 I am the Foodie Assistant. How can I help you today? Ask me about menus, orders, promo codes, or the developer!
+                Hello! 👋 I am the CraveGo Assistant. How can I help you today? Ask me about menus, orders, promo codes, or the developer!
             </div>
         </div>
         <div class="chatbot-quick-replies">
@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             // Greetings
             else if (match(["hello", "hi", "hey", "welcome", "morning", "evening"])) {
-                addBotMessage("Hello! I am the Foodie Assistant. You can ask me about menus, orders, promo codes, or developer info.");
+                addBotMessage("Hello! I am the CraveGo Assistant. You can ask me about menus, orders, promo codes, or developer info.");
             }
             // Food recommendations
             else if (match(["recommend", "food", "eat", "burger", "pizza", "menu", "dishes"])) {
@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             // Default response (Project related constraint)
             else {
-                addBotMessage("I am a specialized assistant for the Foodie project. I can only answer queries related to this application (menus, orders, coupons, developer info). Please ask a relevant question.");
+                addBotMessage("I am a specialized assistant for the CraveGo project. I can only answer queries related to this application (menus, orders, coupons, developer info). Please ask a relevant question.");
             }
         }, 800);
     }

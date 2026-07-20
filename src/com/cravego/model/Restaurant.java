@@ -1,4 +1,4 @@
-package com.foodie.model;
+package com.cravego.model;
 
 public class Restaurant {
     private int id;

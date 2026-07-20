@@ -1,7 +1,7 @@
 ================================================================================
-                    FOODIE - PROJECT DEMO VIDEO SCRIPT
+                    CRAVEGO - PROJECT DEMO VIDEO SCRIPT
 ================================================================================
-Video Title: Foodie - Next-Gen Food Ordering Platform | Project Walkthrough
+Video Title: CraveGo - Next-Gen Food Ordering Platform | Project Walkthrough
 Total Duration: ~3 Minutes (180 Seconds)
 Developer: Sivashankar V P
 
@@ -9,12 +9,12 @@ Developer: Sivashankar V P
 SCENE 1: INTRODUCTION & VISUAL HOOK (0:00 - 0:25)
 ================================================================================
 [VISUAL CUE]: 
-Screen opens on the main Foodie homepage (index.html). Mouse cursor hovers over the hero text with particle effects floating in the background.
+Screen opens on the main CraveGo homepage (index.html). Mouse cursor hovers over the hero text with particle effects floating in the background.
 
 [VOICEOVER / NARRATION]:
-"Hello everyone! Welcome to Foodie — a next-generation, high-performance web application designed to revolutionize the online food ordering experience. 
+"Hello everyone! Welcome to CraveGo — a next-generation, high-performance web application designed to revolutionize the online food ordering experience. 
 
-Built with a modern glassmorphic design system and smooth GSAP animations, Foodie isn't just a basic ordering site — it's an interactive ecosystem crafted for maximum user engagement."
+Built with a modern glassmorphic design system and smooth GSAP animations, CraveGo isn't just a basic ordering site — it's an interactive ecosystem crafted for maximum user engagement."
 
 [ON-SCREEN ACTION]:
 Click the theme switcher on the right side: switch from Burger theme to Fanta theme (orange glow), then to Pizza theme (dark crimson glow).
@@ -41,10 +41,10 @@ On the restaurant menu page, add 2x Cheese Burger and 1x Crispy Wings to cart. W
 SCENE 3: AI ASSISTANT CHATBOT DEMO (0:50 - 1:15)
 ================================================================================
 [VISUAL CUE]:
-Click the floating chat icon in the bottom-right corner to open the Foodie AI Assistant.
+Click the floating chat icon in the bottom-right corner to open the CraveGo AI Assistant.
 
 [VOICEOVER / NARRATION]:
-"Need help while browsing? Meet the Foodie AI Assistant! Integrated directly into the platform, this smart chatbot handles customer inquiries, promo code lookups, order tracking guidance, and developer information."
+"Need help while browsing? Meet the CraveGo AI Assistant! Integrated directly into the platform, this smart chatbot handles customer inquiries, promo code lookups, order tracking guidance, and developer information."
 
 [ON-SCREEN ACTION]:
 1. Click the quick reply button "🍔 Food recommendations".
@@ -74,7 +74,7 @@ Type promo code `SIVA95` into the coupon box and click Apply. Watch the subtotal
 Click "Proceed to Checkout" while not signed in.
 
 [VOICEOVER / NARRATION]:
-"Security is built-in. If an unauthenticated user attempts to check out, Foodie automatically triggers a login guard and redirects them straight to the Authentication portal."
+"Security is built-in. If an unauthenticated user attempts to check out, CraveGo automatically triggers a login guard and redirects them straight to the Authentication portal."
 
 ================================================================================
 SCENE 5: AUTHENTICATION & MULTI-USER PERSISTENCE (1:35 - 2:00)
@@ -104,19 +104,19 @@ Go to Cart -> Proceed to Checkout -> Complete Payment on payment.html.
 Order success page opens with receipt details. Then click "Orders" in the navigation bar to open order-history.html.
 
 [VOICEOVER / NARRATION]:
-"Foodie enforces strict data isolation! On the Order History page, users only see orders associated specifically with their account email. Other users' order privacy is completely protected."
+"CraveGo enforces strict data isolation! On the Order History page, users only see orders associated specifically with their account email. Other users' order privacy is completely protected."
 
 ================================================================================
 SCENE 7: BACKEND ARCHITECTURE & CONCLUSION (2:30 - 3:00)
 ================================================================================
 [VISUAL CUE]:
-Briefly switch screen to VS Code showing the Java package folder structure (`src/com/foodie/` - POJOs, Servlets, DAOs) and MySQL `database.sql`.
+Briefly switch screen to VS Code showing the Java package folder structure (`src/com/cravego/` - POJOs, Servlets, DAOs) and MySQL `database.sql`.
 
 [VOICEOVER / NARRATION]:
-"Under the hood, Foodie is backed by a robust Enterprise Java architecture with Servlet controllers, JDBC Data Access Objects, and MySQL database schemas managing users, restaurants, menus, orders, and order items.
+"Under the hood, CraveGo is backed by a robust Enterprise Java architecture with Servlet controllers, JDBC Data Access Objects, and MySQL database schemas managing users, restaurants, menus, orders, and order items.
 
 Thank you for watching! Check out the code and connect with developer Sivashankar V P via LinkedIn and Instagram. Happy ordering!"
 
 [VISUAL CUE]:
-Fade out with Foodie logo and developer social links.
+Fade out with CraveGo logo and developer social links.
 ================================================================================

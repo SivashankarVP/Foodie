@@ -1,8 +1,8 @@
-package com.foodie.dao.impl;
+package com.cravego.dao.impl;
 
-import com.foodie.dao.OrderItemDAO;
-import com.foodie.model.OrderItem;
-import com.foodie.util.DBConnection;
+import com.cravego.dao.OrderItemDAO;
+import com.cravego.model.OrderItem;
+import com.cravego.util.DBConnection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

@@ -1,5 +1,5 @@
 ================================================================================
-                         FOODIE - PROJECT PRESENTATION
+                         CRAVEGO - PROJECT PRESENTATION
 ================================================================================
 Presentation Duration: 4 Minutes (Hard Stop)
 Target Audience: Judges & Technical Evaluators
@@ -8,12 +8,13 @@ Developer: Sivashankar V P
 --------------------------------------------------------------------------------
 SLIDE 1: Project Intro
 --------------------------------------------------------------------------------
-• Project: Foodie - Next-Gen Interactive Food Ordering Platform
-• Overview: Foodie is an enhanced, high-performance web application designed to deliver an immersive culinary ordering experience. It combines a sleek glassmorphic UI with dynamic multi-theme switching, persistent multi-user session management, custom non-blocking notification systems, an AI-powered assistant chatbot, and a full Java (JDBC/Servlet) backend structure.
+• Project: CraveGo - Next-Gen Interactive Food Ordering Platform
+• Overview: CraveGo is an enhanced, high-performance web application designed to deliver an immersive culinary ordering experience. It combines a sleek glassmorphic UI with dynamic multi-theme switching, persistent multi-user session management, custom non-blocking notification systems, an AI-powered assistant chatbot, and a full Java (JDBC/Servlet) backend structure.
 
 --------------------------------------------------------------------------------
 SLIDE 2: Tech Stack
 --------------------------------------------------------------------------------
+
 • Frontend (UI/UX):
   - Languages: HTML5, CSS3 (Vanilla CSS with Glassmorphic Design System)
   - JavaScript: ES6+ (DOM Manipulation, Web Storage API, Event Delegation)
@@ -31,7 +32,7 @@ SLIDE 2: Tech Stack
 --------------------------------------------------------------------------------
 SLIDE 3: Project Structure
 --------------------------------------------------------------------------------
-Foodie/
+CraveGo/
 ├── burger/                         [Frontend Web Application Root]
 │   ├── index.html                  (Main Multi-Theme Home Page)
 │   ├── restaurant.html             (Restaurant Catalog & Listings)
@@ -47,7 +48,7 @@ Foodie/
 │   ├── style.css                   (Glassmorphic Styling System)
 │   ├── chatbot.js                  (Interactive AI Assistant Logic)
 │   └── chatbot.css                 (Responsive Chatbot Styling)
-├── src/com/foodie/                 [Java Backend Architecture]
+├── src/com/cravego/                 [Java Backend Architecture]
 │   ├── model/                      (POJOs: User, Restaurant, Menu, Order, OrderItem)
 │   ├── dao/ & dao/impl/            (DAO Interfaces & JDBC Implementations)
 │   ├── servlet/                    (Servlets: Login, Register, Order, Restaurant)
@@ -98,13 +99,47 @@ Order Flow Sequence:
 7. User Profile & Order History (profile.html & order-history.html) -> View saved user details and user-isolated past orders.
 
 --------------------------------------------------------------------------------
-SLIDE 6: New Features You Added (Unique Additions)
+SLIDE 6: Key Project Differentiators & Standout Features (10 Unique Implementations)
 --------------------------------------------------------------------------------
-• Interactive AI Assistant Chatbot: Responsive full-screen mobile chatbot with intent-based pattern matching, quick action replies, and developer info integration.
-• Non-Blocking Glassmorphic Toast System: Globally overridden browser `window.alert()` with smooth animated CSS toasts.
-• Dynamic Multi-Theme Switcher: Instant theme morphing between Burger, Fanta, and Pizza modes with synchronized UI elements and color schemes.
-• User-Isolated Data Architecture: Multi-account signup/signin persistence in Web Storage with user-specific order history filtering.
-• Login Guard Security: Automatic auth redirection when attempting checkout without a logged-in session.
+1. Dynamic Multi-Theme Food Experience ⭐
+   - Concept: Instant theme morphing between Burger, Pizza, and Fanta modes with synchronized UI colors, backgrounds, hero elements, and brand identities.
+   - Differentiator: Unlike typical light/dark toggles, theme changes dynamically re-skin the entire interface while maintaining brand consistency across all pages.
+
+2. Custom Glassmorphism Design System
+   - Concept: Built a bespoke, premium UI style guide from scratch without relying on generic Bootstrap templates.
+   - Highlights: Frosted glass cards (`backdrop-filter: blur`), ambient lighting effects, layered depth with translucent borders, and rounded modern components.
+
+3. Integrated AI Food Assistant Chatbot
+   - Concept: Native assistant embedded directly inside the food ordering funnel rather than a generic floating widget.
+   - Capabilities: Handles delivery policies, live order status checks, promo coupon queries (e.g., SIVA95), restaurant details, and developer bio; features quick action buttons and suggested replies.
+
+4. Non-Blocking Custom Notification System
+   - Concept: Replaced disruptive native browser popups with an animated glassmorphic Toast notification system (`window.alert()` global interceptor).
+   - Benefits: Smooth CSS entry/exit animations, non-blocking user flow, and distinct visual feedback states (Success, Warning, Error).
+
+5. User-Isolated Local Storage Architecture
+   - Concept: Developed a multi-tenant client-side storage model simulating true enterprise multi-user security.
+   - Highlights: Account-isolated order histories, individual user profiles, session state persistence, and clean logout teardown that retains registered user credentials.
+
+6. Login Guard Navigation Protection
+   - Concept: Implemented route protection logic enforcing authentication before accessing restricted pages.
+   - Protected Flow: Cart → Checkout → [Guard: Not Logged In?] → Login Page → Auto-Return to Checkout.
+
+7. Smooth Interactive UI & GSAP Micro-Animations
+   - Concept: Focus on high visual polish using GreenSock Animation Platform (GSAP) and CSS micro-interactions.
+   - Highlights: Dynamic hover responses, smooth page entry transitions, interactive hero section, animated CTA buttons, and fluid scroll effects.
+
+8. Industry-Standard Restaurant Ordering Flow
+   - Concept: Implemented a realistic, multi-step food delivery workflow reflecting real-world commercial platforms (Swiggy/Zomato).
+   - Lifecycle: Restaurant Selection → Menu Customization → Cart & Discounts → Checkout Address → Payment Processing → Order Confirmation → User Order Tracking.
+
+9. Layered Java Backend Architecture (Servlet + DAO + JDBC)
+   - Concept: Structured Java backend adhering to enterprise MVC and Data Access Object (DAO) software engineering patterns.
+   - Pipeline: Servlet (Controller) → DAO (Business/Data Interface) → JDBC (Driver & Connection Pool) → MySQL Relational DB.
+
+10. Modular & Reusable Component Architecture
+    - Concept: Clean separation of concerns across JavaScript ES6+ modules and centralized CSS variable design tokens.
+    - Benefits: Highly maintainable, clean code structure enabling effortless scaling, component reusability, and maintainability.
 
 --------------------------------------------------------------------------------
 SLIDE 7: Important Algorithms & Technical Logic

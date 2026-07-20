@@ -1,8 +1,8 @@
-package com.foodie.servlet;
+package com.cravego.servlet;
 
-import com.foodie.dao.UserDAO;
-import com.foodie.dao.impl.UserDAOImpl;
-import com.foodie.model.User;
+import com.cravego.dao.UserDAO;
+import com.cravego.dao.impl.UserDAOImpl;
+import com.cravego.model.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

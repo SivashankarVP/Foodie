@@ -1,11 +1,11 @@
-package com.foodie.servlet;
+package com.cravego.servlet;
 
-import com.foodie.dao.OrderDAO;
-import com.foodie.dao.OrderItemDAO;
-import com.foodie.dao.impl.OrderDAOImpl;
-import com.foodie.dao.impl.OrderItemDAOImpl;
-import com.foodie.model.Order;
-import com.foodie.model.OrderItem;
+import com.cravego.dao.OrderDAO;
+import com.cravego.dao.OrderItemDAO;
+import com.cravego.dao.impl.OrderDAOImpl;
+import com.cravego.dao.impl.OrderItemDAOImpl;
+import com.cravego.model.Order;
+import com.cravego.model.OrderItem;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

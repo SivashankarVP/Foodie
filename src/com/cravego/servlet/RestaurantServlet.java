@@ -1,8 +1,8 @@
-package com.foodie.servlet;
+package com.cravego.servlet;
 
-import com.foodie.dao.RestaurantDAO;
-import com.foodie.dao.impl.RestaurantDAOImpl;
-import com.foodie.model.Restaurant;
+import com.cravego.dao.RestaurantDAO;
+import com.cravego.dao.impl.RestaurantDAOImpl;
+import com.cravego.model.Restaurant;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

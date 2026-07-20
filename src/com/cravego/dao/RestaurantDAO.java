@@ -1,6 +1,6 @@
-package com.foodie.dao;
+package com.cravego.dao;
 
-import com.foodie.model.Restaurant;
+import com.cravego.model.Restaurant;
 import java.util.List;
 
 public interface RestaurantDAO {

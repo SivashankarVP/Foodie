@@ -1,6 +1,6 @@
-package com.foodie.dao;
+package com.cravego.dao;
 
-import com.foodie.model.Order;
+import com.cravego.model.Order;
 import java.util.List;
 
 public interface OrderDAO {

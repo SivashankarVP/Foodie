@@ -1,6 +1,6 @@
-package com.foodie.dao;
+package com.cravego.dao;
 
-import com.foodie.model.User;
+import com.cravego.model.User;
 
 public interface UserDAO {
     boolean createUser(User user);

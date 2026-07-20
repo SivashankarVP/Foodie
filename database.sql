@@ -1,6 +1,6 @@
--- Create database for Foodie application
-CREATE DATABASE IF NOT EXISTS foodie_db;
-USE foodie_db;
+-- Create database for CraveGo application
+CREATE DATABASE IF NOT EXISTS cravego_db;
+USE cravego_db;
 
 -- 1. Users Table
 CREATE TABLE IF NOT EXISTS users (
